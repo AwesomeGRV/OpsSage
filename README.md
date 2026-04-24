@@ -2,9 +2,7 @@
 
 <div align="center">
 
-![OpsSage Logo](https://picsum.photos/300/100/36454F/FFFFFF?text=OpsSage)
-
-**AI-Powered Incident Management Assistant**
+**OpsSage - AI-Powered Incident Management Assistant**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
@@ -87,8 +85,6 @@ OpsSage acts as your intelligent incident copilot that:
 ## Architecture Overview
 
 <div align="center">
-
-![Architecture Diagram](https://picsum.photos/800/400/36454F/FFFFFF?text=OpsSage+Architecture+Diagram)
 
 *Microservices architecture with AI-powered analysis engine*
 
@@ -173,23 +169,17 @@ graph TB
 
 ### Slack Integration Demo
 
-![Slack Demo](https://picsum.photos/600/400/2E3440/FFFFFF?text=Slack+Bot+Demo)
-
 *Real-time incident analysis directly in Slack channels*
 
 ---
 
 ### Web Dashboard Demo
 
-![Dashboard Demo](https://picsum.photos/600/400/2E3440/FFFFFF?text=Web+Dashboard)
-
 *Comprehensive incident management interface*
 
 ---
 
 ### AI Analysis Demo
-
-![AI Analysis](https://picsum.photos/600/400/2E3440/FFFFFF?text=AI+Analysis)
 
 *AI-powered root cause analysis with confidence scoring*
 
@@ -282,8 +272,6 @@ AI_ENGINE_PORT=3003
 
 <div align="center">
 
-![Slack Commands](https://picsum.photos/600/300/4A5568/FFFFFF?text=Slack+Commands)
-
 **Available Commands:**
 - `/analyze <query>` - AI-powered incident analysis
 - `/incident create <title> | <severity> | <service>` - Create incidents
@@ -302,8 +290,6 @@ AI_ENGINE_PORT=3003
 ### 🖥️ Web Dashboard
 
 <div align="center">
-
-![Dashboard Features](https://picsum.photos/600/400/4A5568/FFFFFF?text=Dashboard+Features)
 
 **Key Features:**
 - **Incident Overview** - Real-time incident status
@@ -391,8 +377,6 @@ Advanced analysis with confidence scoring and evidence correlation:
 
 <div align="center">
 
-![MTTR Reduction Chart](https://picsum.photos/600/300/2E3440/FFFFFF?text=MTTR+Reduction)
-
 **Before OpsSage:**
 - Mean Time To Resolution: 45 minutes
 - Root Cause Identification: 30+ minutes
@@ -428,8 +412,6 @@ Our Retrieval-Augmented Generation pipeline combines:
 5. **AI Generation** - GPT-4 powered analysis
 
 <div align="center">
-
-![RAG Pipeline](https://picsum.photos/600/300/4A5568/FFFFFF?text=RAG+Pipeline)
 
 </div>
 
@@ -616,7 +598,7 @@ This project is licensed under the **MIT License** - see the [**LICENSE**](./LIC
 ### Contributors
 
 <a href="https://github.com/your-org/opssage/graphs/contributors">
-  <img src="https://picsum.photos/800/200/36454F/FFFFFF?text=Contributors" />
+*Contributors section*
 </a>
 
 ---
