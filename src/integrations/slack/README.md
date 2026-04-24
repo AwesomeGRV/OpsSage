@@ -2,7 +2,7 @@
 
 A comprehensive Slack bot integration for the OpsSage Intelligent Incident Copilot, providing AI-powered incident analysis and management directly within Slack.
 
-## 🚀 Features
+## Features
 
 ### Core Commands
 - **`/analyze <query>`** - AI-powered incident analysis with root cause detection
@@ -14,7 +14,7 @@ A comprehensive Slack bot integration for the OpsSage Intelligent Incident Copil
 
 ### Interactive Features
 - **@OpsSage mentions** - Analyze any message by mentioning the bot
-- **👀 reactions** - Quick analysis with emoji reactions
+- **reactions** - Quick analysis with emoji reactions
 - **Interactive buttons** - Execute actions directly from analysis results
 - **Real-time updates** - WebSocket support for live updates
 
@@ -24,14 +24,14 @@ A comprehensive Slack bot integration for the OpsSage Intelligent Incident Copil
 - **Threaded conversations** - Organized discussions
 - **Contextual help** - Smart suggestions and tips
 
-## 📋 Prerequisites
+## Prerequisites
 
 1. **Slack Workspace** - Admin access to create apps
 2. **OpsSage Backend** - Running API Gateway and services
 3. **Node.js 18+** - For development
 4. **Redis** - For session management (optional)
 
-## 🛠️ Setup
+## Setup
 
 ### 1. Create Slack App
 

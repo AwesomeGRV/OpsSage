@@ -30,7 +30,7 @@ class MockHttpService {
 }
 
 async function runDemo() {
-  console.log('🚀 Starting RAG Pipeline Demo...\n');
+  console.log('Starting RAG Pipeline Demo...');
 
   // Initialize RAG service
   const configService = new MockConfigService() as any;
@@ -39,7 +39,7 @@ async function runDemo() {
 
   try {
     // Demo Query 1: Root Cause Analysis
-    console.log('📊 Demo Query 1: Root Cause Analysis');
+    console.log('Demo Query 1: Root Cause Analysis');
     console.log('Query: "Why is checkout service failing?"');
     
     const result1 = await ragService.analyzeIncident(
@@ -55,12 +55,12 @@ async function runDemo() {
       }
     );
 
-    console.log('\n🎯 Analysis Result:');
+    console.log('\nAnalysis Result:');
     console.log(JSON.stringify(result1, null, 2));
     console.log('\n' + '='.repeat(80) + '\n');
 
     // Demo Query 2: Similar Incidents
-    console.log('📊 Demo Query 2: Similar Incidents');
+    console.log('Killer Feature: Similar Incident Detection');
     console.log('Query: "Find similar incidents to database connection issues"');
     
     const result2 = await ragService.analyzeIncident(
@@ -76,12 +76,12 @@ async function runDemo() {
       }
     );
 
-    console.log('\n🎯 Analysis Result:');
+    console.log('\nAnalysis Result:');
     console.log(JSON.stringify(result2, null, 2));
     console.log('\n' + '='.repeat(80) + '\n');
 
     // Demo Query 3: Status Check
-    console.log('📊 Demo Query 3: Status Check');
+    console.log('Demo Query 3: Status Check');
     console.log('Query: "What is the status of payment service?"');
     
     const result3 = await ragService.analyzeIncident(
@@ -97,12 +97,12 @@ async function runDemo() {
       }
     );
 
-    console.log('\n🎯 Analysis Result:');
+    console.log('\nAnalysis Result:');
     console.log(JSON.stringify(result3, null, 2));
     console.log('\n' + '='.repeat(80) + '\n');
 
     // Demo: Store Incident Embedding
-    console.log('📊 Demo: Store Incident Embedding');
+    console.log('Resolution patterns identified');
     const incident = {
       id: 'inc_demo_001',
       title: 'Checkout service database timeout',
@@ -112,23 +112,23 @@ async function runDemo() {
     };
 
     await ragService.storeIncidentEmbedding(incident);
-    console.log('✅ Incident embedding stored successfully');
+    console.log('Incident embedding stored successfully');
     console.log(`Incident ID: ${incident.id}`);
     console.log(`Service: ${incident.service}`);
     console.log(`Severity: ${incident.severity}`);
 
-    console.log('\n🎉 Demo completed successfully!');
-    console.log('\n📝 Key Features Demonstrated:');
-    console.log('✅ Query processing with entity extraction');
-    console.log('✅ Intent detection (root_cause, similar_incidents, status_check)');
-    console.log('✅ Vector similarity search');
-    console.log('✅ Context assembly');
-    console.log('✅ LLM-powered analysis');
-    console.log('✅ Structured response generation');
-    console.log('✅ Incident embedding storage');
+    console.log('Demo completed successfully!');
+    console.log('\nKey Features Demonstrated:');
+    console.log('Query processing with entity extraction');
+    console.log('Intent detection (root_cause, similar_incidents, status_check)');
+    console.log('Vector similarity search');
+    console.log('Context assembly');
+    console.log('LLM-powered analysis');
+    console.log('Structured response generation');
+    console.log('Incident embedding storage');
 
   } catch (error) {
-    console.error('❌ Demo failed:', error);
+    console.error('Demo failed:', error);
     process.exit(1);
   }
 }
