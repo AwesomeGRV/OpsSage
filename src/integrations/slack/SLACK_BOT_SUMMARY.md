@@ -1,10 +1,10 @@
-# 🤖 OpsSage Slack Bot - Complete Implementation
+# OpsSage Slack Bot - Complete Implementation
 
-## 🎯 Overview
+## Overview
 
 I have successfully created a comprehensive Slack bot implementation for OpsSage that provides AI-powered incident analysis and management directly within Slack. The bot integrates seamlessly with the OpsSage backend services and delivers the exact same functionality demonstrated in the sample output.
 
-## 🚀 Key Features Implemented
+## Key Features Implemented
 
 ### **1. Slash Commands**
 - **`/analyze <query>`** - AI-powered incident analysis with root cause detection
@@ -16,7 +16,7 @@ I have successfully created a comprehensive Slack bot implementation for OpsSage
 
 ### **2. Interactive Features**
 - **@OpsSage mentions** - Analyze any message by mentioning the bot
-- **👀 emoji reactions** - Quick analysis with emoji reactions
+- **emoji reactions** - Quick analysis with emoji reactions
 - **Interactive buttons** - Execute actions directly from analysis results
 - **Threaded conversations** - Organized discussions in threads
 - **Real-time updates** - WebSocket support for live updates
@@ -25,35 +25,35 @@ I have successfully created a comprehensive Slack bot implementation for OpsSage
 The bot delivers beautiful, structured responses using Slack Block Kit:
 
 ```
-🤖 Incident Analysis Complete
+Incident Analysis Complete
 
 Query: Why is checkout service failing?
 
-🎯 Root Cause Analysis
+Root Cause Analysis
 Hypothesis: Database connection pool exhaustion in checkout-service
 Confidence: 82%
 
-📊 Evidence:
+Evidence:
 • Log Pattern: High frequency of connection timeout errors
   Source: datadog (90% confidence)
 • Metric Anomaly: Database connection utilization at 95%
   Source: datadog (85% confidence)
 
-🔍 Similar Incidents: 1 found
+Similar Incidents: 1 found
 • Checkout service database connection issues
   Similarity: 91%
   Explanation: Similar incident 14 days ago...
 
-💡 Recommendations:
+Recommendations:
 • Restart checkout-service (high priority)
   Risk: low | Time: 5min
 
-[🔄 Restart Service] [📖 View Runbook] [🔍 Full Analysis]
+[Restart Service] [View Runbook] [Full Analysis]
 
-⏱️ Analysis completed in 23.5s | 📊 15,420 data points analyzed
+Analysis completed in 23.5s | 15,420 data points analyzed
 ```
 
-## 🏗️ Architecture
+## Architecture
 
 ### **Service Structure**
 ```

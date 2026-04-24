@@ -160,7 +160,7 @@ class SimpleRAGService {
 }
 
 async function runDemo() {
-  console.log('🚀 Starting Simple RAG Pipeline Demo...\n');
+  console.log('Starting Simple RAG Pipeline Demo...\n');
   
   const ragService = new SimpleRAGService();
   
@@ -174,16 +174,16 @@ async function runDemo() {
   
   for (let i = 0; i < queries.length; i++) {
     console.log(`\n${'='.repeat(80)}`);
-    console.log(`📊 Demo Query ${i + 1}: ${queries[i]}`);
+    console.log(`Demo Query ${i + 1}: ${queries[i]}`);
     console.log(`${'='.repeat(80)}\n`);
     
     try {
       const result = await ragService.analyzeIncident(queries[i]);
       
-      console.log('\n🎯 Analysis Result:');
+      console.log('\nAnalysis Result:');
       console.log(JSON.stringify(result, null, 2));
       
-      console.log('\n✅ Key Insights:');
+      console.log('\nKey Insights:');
       console.log(`• Root Cause: ${result.rootCause.hypothesis}`);
       console.log(`• Confidence: ${result.rootCause.confidence}%`);
       console.log(`• Similar Incidents: ${result.similarIncidents.length}`);
@@ -202,7 +202,7 @@ async function runDemo() {
       }
       
     } catch (error) {
-      console.error('❌ Demo failed:', error);
+      console.error('Demo failed:', error);
     }
     
     // Small delay between queries
@@ -212,30 +212,30 @@ async function runDemo() {
   }
   
   console.log('\n' + '='.repeat(80));
-  console.log('🎉 Demo completed successfully!');
-  console.log('\n📝 Key Features Demonstrated:');
-  console.log('✅ Query processing with entity extraction');
-  console.log('✅ Intent detection (root_cause, similar_incidents, status_check)');
-  console.log('✅ Service-specific analysis');
-  console.log('✅ Similar incident detection with similarity scores');
-  console.log('✅ Root cause hypothesis with confidence scores');
-  console.log('✅ Evidence correlation from multiple sources');
-  console.log('✅ Actionable recommendations with priority levels');
-  console.log('✅ Auto-executable commands for quick remediation');
+  console.log('Demo completed successfully!\n');
+  console.log('Key Features Demonstrated:');
+  console.log('Query processing with entity extraction');
+  console.log('Intent detection (root_cause, similar_incidents, status_check)');
+  console.log('Service-specific analysis');
+  console.log('Similar incident detection with similarity scores');
+  console.log('Root cause hypothesis with confidence scores');
+  console.log('Evidence correlation from multiple sources');
+  console.log('Actionable recommendations with priority levels');
+  console.log('Auto-executable commands for quick remediation');
   
-  console.log('\n🔥 Killer Feature: Similar Incident Detection');
-  console.log('• 91% similarity match found');
-  console.log('• Historical context provided');
-  console.log('• Resolution patterns identified');
-  console.log('• Confidence scoring applied');
+  console.log('Killer Feature: Similar Incident Detection');
+  console.log('91% similarity match found');
+  console.log('Historical context provided');
+  console.log('Resolution patterns identified');
+  console.log('Confidence scoring applied');
   
-  console.log('\n📊 Performance Metrics:');
+  console.log('Performance Metrics:');
   console.log('• Query Processing: ~100ms');
   console.log('• Vector Search: ~200ms (simulated)');
   console.log('• LLM Generation: ~1.5s (simulated)');
   console.log('• Total Response Time: ~2.5s');
   
-  console.log('\n🚀 Ready for Production!');
+  console.log('\nReady for Production!');
   console.log('• Replace mock data with real Pinecone + OpenAI integration');
   console.log('• Add real-time data collection from Datadog, Kubernetes, PagerDuty');
   console.log('• Deploy with Docker and Kubernetes');
