@@ -641,6 +641,6 @@ This project is licensed under the **MIT License** - see the [**LICENSE**](./LIC
 
 **[Star us on GitHub](https://github.com/your-org/opssage)** • **[Report Issues](https://github.com/your-org/opssage/issues)** • **[Contact Us](mailto:team@opssage.com)**
 
-Made with passion by the OpsSage Team
+Made with passion by the OpsSage Team - GRV
 
 </div>
