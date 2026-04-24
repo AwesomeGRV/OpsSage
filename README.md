@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![OpsSage Logo](https://via.placeholder.com/300x100/36454F/FFFFFF?text=OpsSage)
+![OpsSage Logo](https://picsum.photos/300/100/36454F/FFFFFF?text=OpsSage)
 
 **AI-Powered Incident Management Assistant**
 
@@ -88,7 +88,7 @@ OpsSage acts as your intelligent incident copilot that:
 
 <div align="center">
 
-![Architecture Diagram](https://via.placeholder.com/800x400/36454F/FFFFFF?text=OpsSage+Architecture+Diagram)
+![Architecture Diagram](https://picsum.photos/800/400/36454F/FFFFFF?text=OpsSage+Architecture+Diagram)
 
 *Microservices architecture with AI-powered analysis engine*
 
@@ -173,7 +173,7 @@ graph TB
 
 ### Slack Integration Demo
 
-![Slack Demo](https://via.placeholder.com/600x400/2E3440/FFFFFF?text=Slack+Bot+Demo:+%22%2Fanalyze+Why+is+checkout+failing%3F%22)
+![Slack Demo](https://picsum.photos/600/400/2E3440/FFFFFF?text=Slack+Bot+Demo)
 
 *Real-time incident analysis directly in Slack channels*
 
@@ -181,7 +181,7 @@ graph TB
 
 ### Web Dashboard Demo
 
-![Dashboard Demo](https://via.placeholder.com/600x400/2E3440/FFFFFF?text=Web+Dashboard:+Incident+Overview+and+Analysis)
+![Dashboard Demo](https://picsum.photos/600/400/2E3440/FFFFFF?text=Web+Dashboard)
 
 *Comprehensive incident management interface*
 
@@ -189,7 +189,7 @@ graph TB
 
 ### AI Analysis Demo
 
-![AI Analysis](https://via.placeholder.com/600x400/2E3440/FFFFFF?text=AI+Analysis:+Root+Cause+Detection+with+91%+Similarity)
+![AI Analysis](https://picsum.photos/600/400/2E3440/FFFFFF?text=AI+Analysis)
 
 *AI-powered root cause analysis with confidence scoring*
 
@@ -282,7 +282,7 @@ AI_ENGINE_PORT=3003
 
 <div align="center">
 
-![Slack Commands](https://via.placeholder.com/600x300/4A5568/FFFFFF?text=Slack+Commands+Demo)
+![Slack Commands](https://picsum.photos/600/300/4A5568/FFFFFF?text=Slack+Commands)
 
 **Available Commands:**
 - `/analyze <query>` - AI-powered incident analysis
@@ -303,7 +303,7 @@ AI_ENGINE_PORT=3003
 
 <div align="center">
 
-![Dashboard Features](https://via.placeholder.com/600x400/4A5568/FFFFFF?text=Web+Dashboard+Features)
+![Dashboard Features](https://picsum.photos/600/400/4A5568/FFFFFF?text=Dashboard+Features)
 
 **Key Features:**
 - **Incident Overview** - Real-time incident status
@@ -391,7 +391,7 @@ Advanced analysis with confidence scoring and evidence correlation:
 
 <div align="center">
 
-![MTTR Reduction Chart](https://via.placeholder.com/600x300/2E3440/FFFFFF?text=MTTR+Reduction:+45%+Average+Improvement)
+![MTTR Reduction Chart](https://picsum.photos/600/300/2E3440/FFFFFF?text=MTTR+Reduction)
 
 **Before OpsSage:**
 - Mean Time To Resolution: 45 minutes
@@ -429,7 +429,7 @@ Our Retrieval-Augmented Generation pipeline combines:
 
 <div align="center">
 
-![RAG Pipeline](https://via.placeholder.com/600x300/4A5568/FFFFFF?text=RAG+Pipeline:+Data+Flow+Architecture)
+![RAG Pipeline](https://picsum.photos/600/300/4A5568/FFFFFF?text=RAG+Pipeline)
 
 </div>
 
@@ -616,7 +616,7 @@ This project is licensed under the **MIT License** - see the [**LICENSE**](./LIC
 ### Contributors
 
 <a href="https://github.com/your-org/opssage/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=your-org/opssage" />
+  <img src="https://picsum.photos/800/200/36454F/FFFFFF?text=Contributors" />
 </a>
 
 ---
