@@ -1,0 +1,21 @@
+apiVersion: v2
+name: opssage
+description: OpsSage - Intelligent Incident Copilot for SRE teams
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+home: https://github.com/your-org/opssage
+sources:
+  - https://github.com/your-org/opssage
+maintainers:
+  - name: OpsSage Team
+    email: team@opssage.io
+keywords:
+  - sre
+  - incident-management
+  - ai
+  - observability
+  - devops
+annotations:
+  category: DevOps
+  licenses: MIT

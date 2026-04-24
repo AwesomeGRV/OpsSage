@@ -1,0 +1,399 @@
+# Default values for OpsSage Helm Chart
+# This is a YAML-formatted file.
+
+# Global configuration
+global:
+  imageRegistry: ""
+  imagePullSecrets: []
+  storageClass: "fast-ssd"
+  # Common environment variables
+  env:
+    NODE_ENV: "production"
+    LOG_LEVEL: "info"
+    METRICS_ENABLED: "true"
+    TRACING_ENABLED: "true"
+
+# Image configuration
+image:
+  registry: docker.io
+  repository: opssage
+  pullPolicy: IfNotPresent
+  tag: "latest"
+  # Override for specific services
+  apiGateway:
+    repository: opssage/api-gateway
+    tag: "latest"
+  incidentAnalysis:
+    repository: opssage/incident-analysis
+    tag: "latest"
+  dataCollection:
+    repository: opssage/data-collection
+    tag: "latest"
+  aiEngine:
+    repository: opssage/ai-engine
+    tag: "latest"
+
+# Service configuration
+services:
+  apiGateway:
+    replicaCount: 3
+    port: 3000
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "250m"
+      limits:
+        memory: "512Mi"
+        cpu: "500m"
+    autoscaling:
+      enabled: true
+      minReplicas: 3
+      maxReplicas: 10
+      targetCPUUtilizationPercentage: 70
+      targetMemoryUtilizationPercentage: 80
+    nodeSelector: {}
+    tolerations: []
+    affinity: {}
+    annotations: {}
+
+  incidentAnalysis:
+    replicaCount: 2
+    port: 3001
+    resources:
+      requests:
+        memory: "512Mi"
+        cpu: "500m"
+      limits:
+        memory: "1Gi"
+        cpu: "1000m"
+    autoscaling:
+      enabled: true
+      minReplicas: 2
+      maxReplicas: 8
+      targetCPUUtilizationPercentage: 70
+      targetMemoryUtilizationPercentage: 80
+    nodeSelector: {}
+    tolerations: []
+    affinity: {}
+    annotations: {}
+
+  dataCollection:
+    replicaCount: 2
+    port: 3002
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "250m"
+      limits:
+        memory: "512Mi"
+        cpu: "500m"
+    autoscaling:
+      enabled: true
+      minReplicas: 2
+      maxReplicas: 6
+      targetCPUUtilizationPercentage: 70
+    nodeSelector: {}
+    tolerations: []
+    affinity: {}
+    annotations: {}
+
+  aiEngine:
+    replicaCount: 2
+    port: 3003
+    resources:
+      requests:
+        memory: "1Gi"
+        cpu: "1000m"
+      limits:
+        memory: "2Gi"
+        cpu: "2000m"
+    autoscaling:
+      enabled: true
+      minReplicas: 2
+      maxReplicas: 6
+      targetCPUUtilizationPercentage: 80
+      targetMemoryUtilizationPercentage: 85
+    nodeSelector: {}
+    tolerations: []
+    affinity: {}
+    annotations: {}
+
+# Database configuration
+postgresql:
+  enabled: true
+  image:
+    registry: docker.io
+    repository: postgres
+    tag: "14"
+  auth:
+    database: "opssage"
+    username: "opssage"
+    password: "" # Set in secrets
+  primary:
+    persistence:
+      enabled: true
+      size: "20Gi"
+      storageClass: "fast-ssd"
+    resources:
+      requests:
+        memory: "1Gi"
+        cpu: "500m"
+      limits:
+        memory: "2Gi"
+        cpu: "1000m"
+  readReplicas:
+    replicaCount: 2
+    persistence:
+      enabled: true
+      size: "10Gi"
+      storageClass: "fast-ssd"
+    resources:
+      requests:
+        memory: "512Mi"
+        cpu: "250m"
+      limits:
+        memory: "1Gi"
+        cpu: "500m"
+
+# Redis configuration
+redis:
+  enabled: true
+  image:
+    registry: docker.io
+    repository: redis
+    tag: "7-alpine"
+  auth:
+    enabled: true
+    password: "" # Set in secrets
+  master:
+    persistence:
+      enabled: true
+      size: "5Gi"
+      storageClass: "fast-ssd"
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "250m"
+      limits:
+        memory: "512Mi"
+        cpu: "500m"
+  replica:
+    replicaCount: 2
+    persistence:
+      enabled: false
+    resources:
+      requests:
+        memory: "128Mi"
+        cpu: "100m"
+      limits:
+        memory: "256Mi"
+        cpu: "250m"
+
+# Ingress configuration
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/rate-limit: "100"
+    nginx.ingress.kubernetes.io/rate-limit-window: "1m"
+  hosts:
+    - host: api.opssage.io
+      paths:
+        - path: /api/v1
+          pathType: Prefix
+          service: apiGateway
+        - path: /webhooks
+          pathType: Prefix
+          service: apiGateway
+  tls:
+    - secretName: opssage-tls
+      hosts:
+        - api.opssage.io
+
+# Monitoring configuration
+monitoring:
+  enabled: true
+  prometheus:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      namespace: opssage
+      labels:
+        release: prometheus
+    rules:
+      enabled: true
+  grafana:
+    enabled: true
+    dashboards:
+      enabled: true
+      configMaps:
+        - opssage-dashboard
+  alertmanager:
+    enabled: true
+    config:
+      global:
+        slack_api_url: "" # Set in secrets
+      route:
+        group_by: ['alertname']
+        group_wait: 10s
+        group_interval: 10s
+        repeat_interval: 1h
+        receiver: 'web.hook'
+      receivers:
+        - name: 'web.hook'
+          slack_configs:
+            - channel: '#opssage-alerts'
+              send_resolved: true
+
+# External integrations
+integrations:
+  datadog:
+    enabled: true
+    apiKey: "" # Set in secrets
+    appKey: "" # Set in secrets
+    site: "datadoghq.com"
+  
+  openai:
+    enabled: true
+    apiKey: "" # Set in secrets
+    model: "gpt-4"
+    embeddingModel: "text-embedding-ada-002"
+  
+  slack:
+    enabled: true
+    botToken: "" # Set in secrets
+    signingSecret: "" # Set in secrets
+    appToken: "" # Set in secrets
+  
+  teams:
+    enabled: true
+    botId: "" # Set in secrets
+    botPassword: "" # Set in secrets
+    tenantId: "" # Set in secrets
+  
+  pagerduty:
+    enabled: true
+    apiToken: "" # Set in secrets
+  
+  pinecone:
+    enabled: true
+    apiKey: "" # Set in secrets
+    environment: "" # Set in secrets
+
+# Security configuration
+security:
+  podSecurityPolicy:
+    enabled: true
+  rbac:
+    enabled: true
+  networkPolicy:
+    enabled: true
+  serviceAccount:
+    create: true
+    name: "opssage"
+    annotations: {}
+
+# Resource quotas
+resourceQuotas:
+  enabled: true
+  requests:
+    cpu: "10"
+    memory: "20Gi"
+  limits:
+    cpu: "20"
+    memory: "40Gi"
+
+# Pod disruption budgets
+podDisruptionBudgets:
+  apiGateway:
+    enabled: true
+    minAvailable: 2
+  incidentAnalysis:
+    enabled: true
+    minAvailable: 1
+  dataCollection:
+    enabled: true
+    minAvailable: 1
+  aiEngine:
+    enabled: true
+    minAvailable: 1
+
+# Backup configuration
+backup:
+  enabled: true
+  postgresql:
+    enabled: true
+    schedule: "0 2 * * *" # Daily at 2 AM
+    retention: "30d"
+    storage: "s3://opssage-backups/postgresql"
+  redis:
+    enabled: true
+    schedule: "0 3 * * *" # Daily at 3 AM
+    retention: "7d"
+    storage: "s3://opssage-backups/redis"
+
+# Environment-specific configurations
+environments:
+  development:
+    global:
+      env:
+        NODE_ENV: "development"
+        LOG_LEVEL: "debug"
+    services:
+      apiGateway:
+        replicaCount: 1
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+    postgresql:
+      primary:
+        persistence:
+          size: "5Gi"
+    redis:
+      master:
+        persistence:
+          size: "1Gi"
+  
+  staging:
+    global:
+      env:
+        NODE_ENV: "staging"
+        LOG_LEVEL: "info"
+    services:
+      apiGateway:
+        replicaCount: 2
+    postgresql:
+      readReplicas:
+        replicaCount: 1
+  
+  production:
+    global:
+      env:
+        NODE_ENV: "production"
+        LOG_LEVEL: "warn"
+    services:
+      apiGateway:
+        replicaCount: 3
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"
+    postgresql:
+      readReplicas:
+        replicaCount: 2
+    monitoring:
+      alertmanager:
+        enabled: true
+
+# Custom values for specific deployments
+custom: {}
+  # Add any custom configuration here

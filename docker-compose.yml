@@ -1,0 +1,168 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: opssage-postgres
+    environment:
+      POSTGRES_DB: opssage
+      POSTGRES_USER: opssage
+      POSTGRES_PASSWORD: opssage123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./deployment/docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - opssage-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: opssage-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - opssage-network
+
+  # API Gateway
+  api-gateway:
+    build:
+      context: ./src/services/api-gateway
+      dockerfile: Dockerfile
+    container_name: opssage-api-gateway
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      DATABASE_URL: postgresql://opssage:opssage123@postgres:5432/opssage
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: your-jwt-secret-key
+      OPENAI_API_KEY: your-openai-api-key
+      DATADOG_API_KEY: your-datadog-api-key
+      SLACK_BOT_TOKEN: your-slack-bot-token
+      TEAMS_BOT_TOKEN: your-teams-bot-token
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - opssage-network
+    volumes:
+      - ./src/services/api-gateway:/app
+      - /app/node_modules
+
+  # Incident Analysis Service
+  incident-analysis:
+    build:
+      context: ./src/services/incident-analysis
+      dockerfile: Dockerfile
+    container_name: opssage-incident-analysis
+    ports:
+      - "3001:3001"
+    environment:
+      NODE_ENV: development
+      PORT: 3001
+      DATABASE_URL: postgresql://opssage:opssage123@postgres:5432/opssage
+      REDIS_URL: redis://redis:6379
+      OPENAI_API_KEY: your-openai-api-key
+      PINECONE_API_KEY: your-pinecone-api-key
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - opssage-network
+    volumes:
+      - ./src/services/incident-analysis:/app
+      - /app/node_modules
+
+  # Data Collection Service
+  data-collection:
+    build:
+      context: ./src/services/data-collection
+      dockerfile: Dockerfile
+    container_name: opssage-data-collection
+    ports:
+      - "3002:3002"
+    environment:
+      NODE_ENV: development
+      PORT: 3002
+      DATABASE_URL: postgresql://opssage:opssage123@postgres:5432/opssage
+      REDIS_URL: redis://redis:6379
+      DATADOG_API_KEY: your-datadog-api-key
+      DATADOG_APP_KEY: your-datadog-app-key
+      KUBERNETES_CONFIG: ./config/kubeconfig
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - opssage-network
+    volumes:
+      - ./src/services/data-collection:/app
+      - /app/node_modules
+
+  # AI Engine Service
+  ai-engine:
+    build:
+      context: ./src/services/ai-engine
+      dockerfile: Dockerfile
+    container_name: opssage-ai-engine
+    ports:
+      - "3003:3003"
+    environment:
+      NODE_ENV: development
+      PORT: 3003
+      DATABASE_URL: postgresql://opssage:opssage123@postgres:5432/opssage
+      REDIS_URL: redis://redis:6379
+      OPENAI_API_KEY: your-openai-api-key
+      PINECONE_API_KEY: your-pinecone-api-key
+      PINECONE_ENVIRONMENT: us-west1-gcp
+      PINECONE_INDEX: opssage-incidents
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - opssage-network
+    volumes:
+      - ./src/services/ai-engine:/app
+      - /app/node_modules
+
+  # Prometheus for monitoring
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: opssage-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./deployment/docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    networks:
+      - opssage-network
+
+  # Grafana for dashboards
+  grafana:
+    image: grafana/grafana:latest
+    container_name: opssage-grafana
+    ports:
+      - "3004:3000"
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: admin123
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./deployment/docker/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./deployment/docker/grafana/datasources:/etc/grafana/provisioning/datasources
+    networks:
+      - opssage-network
+
+volumes:
+  postgres_data:
+  redis_data:
+  prometheus_data:
+  grafana_data:
+
+networks:
+  opssage-network:
+    driver: bridge

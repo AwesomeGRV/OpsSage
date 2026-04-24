@@ -1,0 +1,48 @@
+{
+  "name": "opssage",
+  "version": "1.0.0",
+  "description": "OpsSage - Intelligent Incident Copilot",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:api-gateway\" \"npm run dev:incident-analysis\" \"npm run dev:data-collection\" \"npm run dev:ai-engine\"",
+    "dev:api-gateway": "cd src/services/api-gateway && npm run dev",
+    "dev:incident-analysis": "cd src/services/incident-analysis && npm run dev",
+    "dev:data-collection": "cd src/services/data-collection && npm run dev",
+    "dev:ai-engine": "cd src/services/ai-engine && npm run dev",
+    "build": "npm run build:api-gateway && npm run build:incident-analysis && npm run build:data-collection && npm run build:ai-engine",
+    "build:api-gateway": "cd src/services/api-gateway && npm run build",
+    "build:incident-analysis": "cd src/services/incident-analysis && npm run build",
+    "build:data-collection": "cd src/services/data-collection && npm run build",
+    "build:ai-engine": "cd src/services/ai-engine && npm run build",
+    "start": "npm run start:api-gateway",
+    "start:api-gateway": "cd src/services/api-gateway && npm run start",
+    "test": "npm run test:api-gateway && npm run test:incident-analysis && npm run test:data-collection && npm run test:ai-engine",
+    "test:api-gateway": "cd src/services/api-gateway && npm test",
+    "test:incident-analysis": "cd src/services/incident-analysis && npm test",
+    "test:data-collection": "cd src/services/data-collection && npm test",
+    "test:ai-engine": "cd src/services/ai-engine && npm test",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "setup": "npm install && npm run setup:services",
+    "setup:services": "cd src/services/api-gateway && npm install && cd ../incident-analysis && npm install && cd ../data-collection && npm install && cd ../ai-engine && npm install"
+  },
+  "keywords": [
+    "incident-management",
+    "ai",
+    "devops",
+    "sre",
+    "chatops",
+    "monitoring"
+  ],
+  "author": "OpsSage Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "docker-compose": "^0.24.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}
