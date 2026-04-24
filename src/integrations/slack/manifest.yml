@@ -1,0 +1,63 @@
+display_information:
+  name: OpsSage
+  description: AI-powered incident analysis and management
+  background_color: "#36454F"
+  long_description: "OpsSage is your intelligent incident copilot that provides AI-powered root cause analysis, similar incident detection, and actionable recommendations directly in Slack. Get instant insights into system issues with natural language queries."
+
+features:
+  bot_user:
+    display_name: OpsSage
+    always_online: false
+  slash_commands:
+    - command: /analyze
+      url: https://your-domain.com/api/v1/slack-bot/events
+      description: AI-powered incident analysis
+      usage_hint: "Why is checkout service failing?"
+      should_escape: false
+    - command: /incident
+      url: https://your-domain.com/api/v1/slack-bot/events
+      description: Create and manage incidents
+      usage_hint: "create | list | resolve"
+      should_escape: false
+    - command: /status
+      url: https://your-domain.com/api/v1/slack-bot/events
+      description: Show system health status
+      usage_hint: ""
+      should_escape: false
+    - command: /help
+      url: https://your-domain.com/api/v1/slack-bot/events
+      description: Display help information
+      usage_hint: ""
+      should_escape: false
+
+oauth_config:
+  scopes:
+    bot:
+      - app_mentions:read
+      - chat:write
+      - chat:write.public
+      - commands
+      - channels:read
+      - channels:history
+      - groups:read
+      - groups:history
+      - im:read
+      - im:history
+      - mpim:read
+      - mpim:history
+      - reactions:read
+      - reactions:write
+      - users:read
+
+settings:
+  event_subscriptions:
+    request_url: https://your-domain.com/api/v1/slack-bot/events
+    bot_events:
+      - app_mention
+      - reaction_added
+  interactivity:
+    is_enabled: true
+    request_url: https://your-domain.com/api/v1/slack-bot/interactive
+  org_deploy_enabled: false
+  socket_mode_enabled: true
+  token_rotation_enabled: false
