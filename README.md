@@ -163,29 +163,6 @@ graph TB
 
 ---
 
-## Live Demo
-
-<div align="center">
-
-### Slack Integration Demo
-
-*Real-time incident analysis directly in Slack channels*
-
----
-
-### Web Dashboard Demo
-
-*Comprehensive incident management interface*
-
----
-
-### AI Analysis Demo
-
-*AI-powered root cause analysis with confidence scoring*
-
-</div>
-
----
 
 ## Quick Start
 
@@ -287,7 +264,7 @@ AI_ENGINE_PORT=3003
 
 </div>
 
-### 🖥️ Web Dashboard
+###  Web Dashboard
 
 <div align="center">
 
@@ -582,40 +559,6 @@ This project is licensed under the **MIT License** - see the [**LICENSE**](./LIC
 - **Private use** allowed
 - **Liability** - Software provided "as is"
 - **Warranty** - No warranty provided
-
----
-
-## Acknowledgments
-
-### Special Thanks
-
-- **OpenAI** - For the powerful GPT-4 API
-- **Pinecone** - For the excellent vector database
-- **NestJS** - For the robust Node.js framework
-- **Slack** - For the amazing platform integration
-- **Our Contributors** - For making this project possible
-
-### Contributors
-
-<a href="https://github.com/your-org/opssage/graphs/contributors">
-*Contributors section*
-</a>
-
----
-
-## Project Status
-
-<div align="center">
-
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
-![Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen)
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-
-**Last Release:** v1.0.0 (January 2024)
-**Next Release:** v1.1.0 (February 2024)
-
-</div>
 
 ---
 
