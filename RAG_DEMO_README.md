@@ -1,10 +1,10 @@
-# 🚀 RAG Pipeline Demo - Run Instructions
+# RAG Pipeline Demo - Run Instructions
 
 ## Overview
 
 This demo shows the complete RAG (Retrieval-Augmented Generation) pipeline in action. The demo includes query processing, vector similarity search, context assembly, and AI-powered incident analysis.
 
-## 🛠️ Prerequisites
+## Prerequisites
 
 ### Required Services
 1. **Redis** (for caching)
@@ -32,7 +32,7 @@ NODE_ENV=development
 LOG_LEVEL=info
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Option 1: Run Demo Directly
 ```bash
@@ -64,7 +64,7 @@ curl -X POST http://localhost:3003/api/v1/rag/analyze \
   }'
 ```
 
-## 📊 Demo Features
+## Demo Features
 
 ### 1. Query Processing
 - **Entity Extraction**: Identifies services, time expressions, error types
@@ -87,7 +87,7 @@ curl -X POST http://localhost:3003/api/v1/rag/analyze \
 - **Similar Incidents**: Finds historical patterns
 - **Actionable Recommendations**: Provides specific remediation steps
 
-## 🎯 Demo Queries
+## Demo Queries
 
 The demo runs three different types of queries:
 
@@ -115,7 +115,7 @@ Services: [payment-service]
 Time Range: Last hour
 ```
 
-## 📋 Expected Output
+## Expected Output
 
 ### Sample Analysis Result
 ```json
@@ -164,7 +164,7 @@ Time Range: Last hour
 }
 ```
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -210,7 +210,7 @@ npx tsc --version
 npm run build
 ```
 
-## 🎛️ Configuration Options
+## Configuration Options
 
 ### Environment Variables
 ```bash
@@ -245,7 +245,7 @@ const demoQueries = [
 ];
 ```
 
-## 📈 Performance Metrics
+## Performance Metrics
 
 ### Demo Performance
 - **Query Processing**: <100ms
@@ -259,24 +259,24 @@ const demoQueries = [
 - **Concurrency**: Supports 10+ parallel queries
 - **Memory Usage**: ~100MB per service instance
 
-## 🔍 Monitoring
+## Monitoring
 
 ### Demo Logging
 The demo provides structured logging:
 ```
-🚀 Starting RAG Pipeline Demo...
+Starting RAG Pipeline Demo...
 
-📊 Demo Query 1: Root Cause Analysis
+Demo Query 1: Root Cause Analysis
 Query: "Why is checkout service failing?"
 
-🎯 Analysis Result:
+Analysis Result:
 {
   "rootCause": { ... },
   "similarIncidents": [ ... ],
   "recommendations": [ ... ]
 }
 
-🎉 Demo completed successfully!
+Demo completed successfully!
 ```
 
 ### Health Check
@@ -293,7 +293,7 @@ curl http://localhost:3003/api/v1/rag/health
 }
 ```
 
-## 🧪 Testing
+## Testing
 
 ### Unit Tests
 ```bash
@@ -316,7 +316,7 @@ curl -X POST http://localhost:3003/api/v1/rag/analyze \
   -d '{"query": "test query", "services": [], "timeRange": {}, "userId": "test"}'
 ```
 
-## 🚀 Production Deployment
+## Production Deployment
 
 ### Docker Deployment
 ```bash
@@ -357,7 +357,7 @@ spec:
               key: openai-api-key
 ```
 
-## 🎯 Next Steps
+## Next Steps
 
 1. **Set up real data sources**: Connect to Datadog, Kubernetes, PagerDuty
 2. **Configure Pinecone index**: Create and populate with real incident data
@@ -365,7 +365,7 @@ spec:
 4. **Add monitoring**: Set up Prometheus metrics and Grafana dashboards
 5. **Scale horizontally**: Deploy multiple instances with load balancing
 
-## 📚 Additional Resources
+## Additional Resources
 
 - [RAG Pipeline Architecture](docs/architecture/rag-pipeline.md)
 - [AI Engine Service Documentation](src/services/ai-engine/README.md)
