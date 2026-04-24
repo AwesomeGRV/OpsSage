@@ -258,7 +258,7 @@ AI_ENGINE_PORT=3003
 
 **Interactive Features:**
 - **@OpsSage mentions** - Analyze any message
-- **👀 reactions** - Quick analysis with emoji reactions
+- **reactions** - Quick analysis with emoji reactions
 - **Action buttons** - One-click service restarts
 - **Real-time updates** - Live analysis progress
 
@@ -479,32 +479,6 @@ helm uninstall opssage
 
 ---
 
-## Testing
-
-### Test Coverage
-
-```bash
-# Run all tests
-npm run test
-
-# Run with coverage
-npm run test:cov
-
-# Run integration tests
-npm run test:e2e
-
-# Run performance tests
-npm run test:perf
-```
-
-### Test Results
-
-- **Unit Tests**: 95% coverage
-- **Integration Tests**: 90% coverage
-- **E2E Tests**: 85% coverage
-- **Performance Tests**: <3s response time SLA
-
----
 
 ## Contributing
 
@@ -529,23 +503,6 @@ We welcome contributions from the community! Please read our [**Contributing Gui
 
 ---
 
-## Support & Community
-
-### Get Help
-
-- **GitHub Issues** - Report bugs and request features
-- **Discord Community** - Chat with other users and developers
-- **Documentation** - Comprehensive guides and API reference
-- **Email Support** - Enterprise support plans available
-
-### Community Resources
-
-- **Blog** - Latest features and best practices
-- **YouTube Channel** - Video tutorials and demos
-- **Newsletter** - Monthly updates and tips
-- **Meetups** - User groups and conferences
-
----
 
 ## License
 
