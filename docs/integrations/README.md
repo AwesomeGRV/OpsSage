@@ -4,7 +4,7 @@
 
 This document provides comprehensive integration examples for connecting OpsSage with various data sources, monitoring systems, and communication platforms.
 
-## 🔌 Data Source Integrations
+## Data Source Integrations
 
 ### 1. Datadog Integration
 
@@ -1084,9 +1084,8 @@ interface SimilarIncident {
   service: string;
   summary: string;
 }
-```
 
-## 📱 ChatOps Integrations
+## ChatOps Integrations
 
 ### 1. Slack Integration
 
@@ -1177,7 +1176,7 @@ export class SlackCommandHandler {
     // Send immediate response
     await this.sendImmediateResponse(command.response_url, {
       response_type: 'in_channel',
-      text: ` Analyzing: ${query}...`
+      text: `Analyzing: ${query}...`
     });
 
     try {
@@ -1202,7 +1201,7 @@ export class SlackCommandHandler {
           type: 'header',
           text: {
             type: 'plain_text',
-            text: ' Incident Analysis Complete'
+            text: 'Incident Analysis Complete'
           }
         },
         {
@@ -1219,7 +1218,7 @@ export class SlackCommandHandler {
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: '* Evidence:*'
+            text: '*Evidence:*'
           }
         },
         ...this.formatEvidenceBlocks(analysis.analysis.rootCause.evidence),
@@ -1230,7 +1229,7 @@ export class SlackCommandHandler {
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: '* Immediate Actions:*'
+            text: '*Immediate Actions:*'
           }
         },
         ...this.formatRecommendationBlocks(analysis.analysis.recommendations),
@@ -1241,7 +1240,7 @@ export class SlackCommandHandler {
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: `* Similar Incidents:* Found ${analysis.analysis.similarIncidents.length} similar incidents`
+            text: `*Similar Incidents:* Found ${analysis.analysis.similarIncidents.length} similar incidents`
           }
         },
         ...this.formatSimilarIncidentsBlocks(analysis.analysis.similarIncidents)
@@ -1368,7 +1367,6 @@ interface SlackResponse {
   blocks?: any[];
   actions?: any[];
 }
-```
 
 ### 2. Microsoft Teams Integration
 
@@ -1413,7 +1411,7 @@ export class TeamsCardHandler {
       body: [
         {
           type: 'TextBlock',
-          text: ' Incident Analysis Complete',
+          text: 'Incident Analysis Complete',
           size: 'large',
           weight: 'bolder',
           color: this.getSeverityColor(analysis.analysis.rootCause.confidence)
@@ -1447,21 +1445,21 @@ export class TeamsCardHandler {
         },
         {
           type: 'TextBlock',
-          text: ' Evidence',
+          text: 'Evidence',
           weight: 'bolder',
           spacing: 'medium'
         },
         ...this.createEvidenceBlocks(analysis.analysis.rootCause.evidence),
         {
           type: 'TextBlock',
-          text: ' Recommendations',
+          text: 'Recommendations',
           weight: 'bolder',
           spacing: 'medium'
         },
         ...this.createRecommendationBlocks(analysis.analysis.recommendations),
         {
           type: 'TextBlock',
-          text: ` Similar Incidents: ${analysis.analysis.similarIncidents.length} found`,
+          text: `Similar Incidents: ${analysis.analysis.similarIncidents.length} found`,
           weight: 'bolder',
           spacing: 'medium'
         },

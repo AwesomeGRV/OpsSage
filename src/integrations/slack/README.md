@@ -5,12 +5,12 @@ A comprehensive Slack bot integration for the OpsSage Intelligent Incident Copil
 ## Features
 
 ### Core Commands
-- **`/analyze <query>`** - AI-powered incident analysis with root cause detection
-- **`/incident create <title> | <severity> | <service>`** - Create new incidents
-- **`/incident list`** - List open incidents
-- **`/incident resolve <id>`** - Resolve incidents
-- **`/status`** - Show system health status
-- **`/help`** - Display help information
+- `/analyze <query>` - AI-powered incident analysis with root cause detection
+- `/incident create <title> | <severity> | <service>` - Create new incidents
+- `/incident list` - List open incidents
+- `/incident resolve <id>` - Resolve incidents
+- `/status` - Show system health status
+- `/help` - Display help information
 
 ### Interactive Features
 - **@OpsSage mentions** - Analyze any message by mentioning the bot
@@ -19,9 +19,9 @@ A comprehensive Slack bot integration for the OpsSage Intelligent Incident Copil
 - **Real-time updates** - WebSocket support for live updates
 
 ### Rich Responses
-- **Block Kit UI** - Beautiful, structured responses
-- **Action buttons** - One-click service restarts, runbook access
-- **Threaded conversations** - Organized discussions
+- Block Kit UI - Beautiful, structured responses
+- Action buttons - One-click service restarts, runbook access
+- Threaded conversations - Organized discussions
 - **Contextual help** - Smart suggestions and tips
 
 ## Prerequisites
