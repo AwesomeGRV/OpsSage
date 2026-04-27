@@ -322,7 +322,7 @@ jobs:
           - **Error Rate**: ${results.errorRate}%
           - **95th Percentile**: ${results.p95ResponseTime}ms
           
-          ${results.passed ? '✅ Performance tests passed' : '❌ Performance tests failed'}
+          ${results.passed ? 'Performance tests passed' : 'Performance tests failed'}
           `;
           
           github.rest.issues.createComment({
@@ -381,7 +381,7 @@ jobs:
         status: success
         channel: '#deployments'
         text: |
-          🚀 Deployment successful!
+          Deployment successful!
           
           **Branch**: ${{ github.ref }}
           **Commit**: ${{ github.sha }}
@@ -396,7 +396,7 @@ jobs:
         status: failure
         channel: '#deployments'
         text: |
-          ❌ Deployment failed!
+          Deployment failed!
           
           **Branch**: ${{ github.ref }}
           **Commit**: ${{ github.sha }}
