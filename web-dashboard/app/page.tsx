@@ -26,7 +26,19 @@ import {
   Brain,
   Bot,
   Command,
-  Search
+  Search,
+  Wifi,
+  HardDrive,
+  Monitor,
+  Settings,
+  Bell,
+  User,
+  ChevronRight,
+  PieChart,
+  LineChart,
+  ZapOff,
+  AlertCircle,
+  TrendingUp as TrendingUpIcon
 } from 'lucide-react'
 
 // Mock data for demonstration
@@ -187,240 +199,311 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-      {/* Background Pattern */}
-      <div className="fixed inset-0 bg-grid-pattern opacity-[0.05] pointer-events-none" />
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+      {/* Animated Background */}
+      <div className="fixed inset-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 animate-pulse" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]" />
+      </div>
       
-      <div className="relative z-10 flex h-screen">
-        {/* Sidebar */}
-        <div className="w-80 bg-black/20 backdrop-blur-xl border-r border-white/10 flex flex-col">
-          <div className="p-6 border-b border-white/10">
-            <div className="flex items-center space-x-3">
-              <div className="h-10 w-10 rounded-xl gradient-bg flex items-center justify-center">
-                <Shield className="h-6 w-6 text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-white">OpsSage</h1>
-                <p className="text-xs text-gray-400">AI-Powered Operations</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="flex-1 p-6 space-y-6 overflow-y-auto">
-            {/* Quick Stats */}
-            <div className="space-y-4">
-              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wide">System Status</h3>
-              <div className="flex items-center space-x-2 text-green-400">
-                <div className="h-2 w-2 rounded-full bg-green-500 pulse-dot online" />
-                <span className="text-sm">All Systems Operational</span>
-              </div>
-            </div>
-
-            {/* Key Metrics */}
-            <div className="space-y-4">
-              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wide">Key Metrics</h3>
-              <div className="space-y-3">
-                <div className="p-3 rounded-lg bg-white/5 border border-white/10">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-400">MTTR</span>
-                    <span className="text-lg font-bold text-white">{mockMetrics.mttr.current}m</span>
+      <div className="relative z-10">
+        {/* Top Navigation Bar */}
+        <div className="bg-black/30 backdrop-blur-xl border-b border-white/10">
+          <div className="px-6 py-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-8">
+                <div className="flex items-center space-x-3">
+                  <div className="h-10 w-10 rounded-xl gradient-bg flex items-center justify-center">
+                    <Shield className="h-6 w-6 text-white" />
                   </div>
-                  <div className="text-xs text-green-400 mt-1">↓ {mockMetrics.mttr.improvement}%</div>
+                  <div>
+                    <h1 className="text-xl font-bold text-white">OpsSage</h1>
+                    <p className="text-xs text-gray-400">Intelligent Operations Platform</p>
+                  </div>
                 </div>
-                <div className="p-3 rounded-lg bg-white/5 border border-white/10">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-400">Incidents</span>
-                    <span className="text-lg font-bold text-white">{mockMetrics.incidents.today}</span>
-                  </div>
-                  <div className="text-xs text-gray-400 mt-1">{mockMetrics.incidents.week} this week</div>
+                
+                <nav className="hidden md:flex items-center space-x-6">
+                  <button className="text-white font-medium hover:text-blue-400 transition-colors">Dashboard</button>
+                  <button className="text-gray-400 hover:text-white transition-colors">Incidents</button>
+                  <button className="text-gray-400 hover:text-white transition-colors">Services</button>
+                  <button className="text-gray-400 hover:text-white transition-colors">Analytics</button>
+                  <button className="text-gray-400 hover:text-white transition-colors">Settings</button>
+                </nav>
+              </div>
+              
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2 px-3 py-1 rounded-full bg-green-500/20 border border-green-500/30">
+                  <div className="h-2 w-2 rounded-full bg-green-500 pulse-dot online" />
+                  <span className="text-sm text-green-400">Operational</span>
                 </div>
-                <div className="p-3 rounded-lg bg-white/5 border border-white/10">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-400">Uptime</span>
-                    <span className="text-lg font-bold text-white">{mockMetrics.uptime.overall}%</span>
-                  </div>
-                  <div className="text-xs text-gray-400 mt-1">Last 30 days</div>
+                <button className="p-2 rounded-lg hover:bg-white/10 transition-colors">
+                  <Bell className="h-5 w-5 text-gray-400" />
+                </button>
+                <button className="p-2 rounded-lg hover:bg-white/10 transition-colors">
+                  <Settings className="h-5 w-5 text-gray-400" />
+                </button>
+                <div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
+                  <User className="h-4 w-4 text-white" />
                 </div>
               </div>
             </div>
-
-            {/* Service Health */}
-            <div className="space-y-4">
-              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wide">Service Health</h3>
-              <div className="space-y-3">
-                {mockServices.map((service) => (
-                  <div key={service.name} className="p-3 rounded-lg bg-white/5 border border-white/10">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-white">{service.name}</span>
-                      <div className={`h-2 w-2 rounded-full ${getStatusColor(service.status)} pulse-dot ${service.status}`} />
-                    </div>
-                    <div className="grid grid-cols-2 gap-2 text-xs">
-                      <div className="text-gray-400">CPU: <span className={service.cpu > 80 ? 'text-red-400' : service.cpu > 60 ? 'text-yellow-400' : 'text-green-400'}>{service.cpu}%</span></div>
-                      <div className="text-gray-400">Mem: <span className={service.memory > 80 ? 'text-red-400' : service.memory > 60 ? 'text-yellow-400' : 'text-green-400'}>{service.memory}%</span></div>
-                      <div className="text-gray-400">Err: <span className={service.errors > 5 ? 'text-red-400' : service.errors > 1 ? 'text-yellow-400' : 'text-green-400'}>{service.errors}%</span></div>
-                      <div className="text-gray-400">Req: <span className="text-gray-300">{formatNumber(service.requests)}</span></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="p-6 border-t border-white/10">
-            <Button className="w-full gradient-bg text-white hover-lift">
-              <Zap className="mr-2 h-4 w-4" />
-              Analyze Incident
-            </Button>
           </div>
         </div>
 
-        {/* Main Content */}
-        <div className="flex-1 flex flex-col">
-          {/* Header */}
-          <div className="border-b border-white/10 bg-black/20 backdrop-blur-xl">
-            <div className="px-8 py-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h2 className="text-2xl font-bold text-white">Dashboard</h2>
-                  <p className="text-gray-400">Real-time system monitoring and incident management</p>
+        {/* Main Dashboard Content */}
+        <div className="p-6">
+          {/* Key Metrics Row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600/20 to-blue-800/20 backdrop-blur-xl border border-blue-500/30 p-6 hover-lift">
+              <div className="absolute top-0 right-0 -mt-4 -mr-4 h-16 w-16 rounded-full bg-blue-500/20 blur-xl" />
+              <div className="relative">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="p-2 rounded-lg bg-blue-500/20">
+                    <Activity className="h-6 w-6 text-blue-400" />
+                  </div>
+                  <div className="flex items-center text-green-400 text-sm">
+                    <ArrowUpRight className="h-4 w-4 mr-1" />
+                    12%
+                  </div>
                 </div>
-                <div className="flex items-center space-x-4">
-                  <Button variant="outline" className="border-white/20 text-white hover:bg-white/10">
-                    <Activity className="mr-2 h-4 w-4" />
-                    System Status
-                  </Button>
-                  <Button className="gradient-bg text-white hover-lift">
-                    <Brain className="mr-2 h-4 w-4" />
-                    AI Analysis
-                  </Button>
+                <div className="text-3xl font-bold text-white mb-1">{formatNumber(mockMetrics.performance.throughput)}</div>
+                <div className="text-sm text-gray-400">Requests/sec</div>
+                <div className="mt-3 h-1 bg-blue-500/20 rounded-full overflow-hidden">
+                  <div className="h-full w-3/4 bg-gradient-to-r from-blue-500 to-blue-400 rounded-full" />
+                </div>
+              </div>
+            </div>
+
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-600/20 to-green-800/20 backdrop-blur-xl border border-green-500/30 p-6 hover-lift">
+              <div className="absolute top-0 right-0 -mt-4 -mr-4 h-16 w-16 rounded-full bg-green-500/20 blur-xl" />
+              <div className="relative">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="p-2 rounded-lg bg-green-500/20">
+                    <CheckCircle className="h-6 w-6 text-green-400" />
+                  </div>
+                  <div className="flex items-center text-green-400 text-sm">
+                    <ArrowUpRight className="h-4 w-4 mr-1" />
+                    0.3%
+                  </div>
+                </div>
+                <div className="text-3xl font-bold text-white mb-1">{mockMetrics.uptime.overall}%</div>
+                <div className="text-sm text-gray-400">Uptime</div>
+                <div className="mt-3 h-1 bg-green-500/20 rounded-full overflow-hidden">
+                  <div className="h-full w-[99.7%] bg-gradient-to-r from-green-500 to-green-400 rounded-full" />
+                </div>
+              </div>
+            </div>
+
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-600/20 to-purple-800/20 backdrop-blur-xl border border-purple-500/30 p-6 hover-lift">
+              <div className="absolute top-0 right-0 -mt-4 -mr-4 h-16 w-16 rounded-full bg-purple-500/20 blur-xl" />
+              <div className="relative">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="p-2 rounded-lg bg-purple-500/20">
+                    <Clock className="h-6 w-6 text-purple-400" />
+                  </div>
+                  <div className="flex items-center text-green-400 text-sm">
+                    <ArrowDownRight className="h-4 w-4 mr-1" />
+                    28%
+                  </div>
+                </div>
+                <div className="text-3xl font-bold text-white mb-1">{mockMetrics.mttr.current}m</div>
+                <div className="text-sm text-gray-400">MTTR</div>
+                <div className="mt-3 h-1 bg-purple-500/20 rounded-full overflow-hidden">
+                  <div className="h-full w-1/3 bg-gradient-to-r from-purple-500 to-purple-400 rounded-full" />
+                </div>
+              </div>
+            </div>
+
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-600/20 to-orange-800/20 backdrop-blur-xl border border-orange-500/30 p-6 hover-lift">
+              <div className="absolute top-0 right-0 -mt-4 -mr-4 h-16 w-16 rounded-full bg-orange-500/20 blur-xl" />
+              <div className="relative">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="p-2 rounded-lg bg-orange-500/20">
+                    <AlertTriangle className="h-6 w-6 text-orange-400" />
+                  </div>
+                  <div className="flex items-center text-red-400 text-sm">
+                    <ArrowUpRight className="h-4 w-4 mr-1" />
+                    15%
+                  </div>
+                </div>
+                <div className="text-3xl font-bold text-white mb-1">{mockMetrics.incidents.today}</div>
+                <div className="text-sm text-gray-400">Active Incidents</div>
+                <div className="mt-3 h-1 bg-orange-500/20 rounded-full overflow-hidden">
+                  <div className="h-full w-1/4 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full" />
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Content Area */}
-          <div className="flex-1 p-8 overflow-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Recent Incidents */}
-              <Card className="glass-morphism-dark border-0 shadow-2xl">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <CardTitle className="flex items-center space-x-2 text-white">
-                        <Target className="h-5 w-5 text-blue-400" />
-                        <span>Recent Incidents</span>
-                      </CardTitle>
-                      <CardDescription className="text-gray-400">Latest incidents detected by AI analysis</CardDescription>
+          {/* Main Grid Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Service Status Grid */}
+            <div className="lg:col-span-2 space-y-6">
+              {/* Service Health Overview */}
+              <div className="bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 p-6">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-xl font-bold text-white">Service Health</h3>
+                  <button className="text-blue-400 hover:text-blue-300 text-sm flex items-center">
+                    View All
+                    <ChevronRight className="h-4 w-4 ml-1" />
+                  </button>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  {mockServices.map((service) => (
+                    <div key={service.name} className="bg-white/5 rounded-xl border border-white/10 p-4 hover:bg-white/10 transition-colors">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center space-x-2">
+                          <div className={`h-3 w-3 rounded-full ${getStatusColor(service.status)} pulse-dot ${service.status}`} />
+                          <span className="font-medium text-white">{service.name}</span>
+                        </div>
+                        <span className="text-sm text-gray-400">{service.uptime}%</span>
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="text-gray-400">CPU</span>
+                          <div className="flex items-center space-x-2">
+                            <div className="w-20 h-2 bg-gray-700 rounded-full overflow-hidden">
+                              <div 
+                                className={`h-full rounded-full ${
+                                  service.cpu > 80 ? 'bg-red-500' : 
+                                  service.cpu > 60 ? 'bg-yellow-500' : 'bg-green-500'
+                                }`}
+                                style={{ width: `${service.cpu}%` }}
+                              />
+                            </div>
+                            <span className="text-gray-300">{service.cpu}%</span>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="text-gray-400">Memory</span>
+                          <div className="flex items-center space-x-2">
+                            <div className="w-20 h-2 bg-gray-700 rounded-full overflow-hidden">
+                              <div 
+                                className={`h-full rounded-full ${
+                                  service.memory > 80 ? 'bg-red-500' : 
+                                  service.memory > 60 ? 'bg-yellow-500' : 'bg-green-500'
+                                }`}
+                                style={{ width: `${service.memory}%` }}
+                              />
+                            </div>
+                            <span className="text-gray-300">{service.memory}%</span>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="text-gray-400">Requests</span>
+                          <span className="text-gray-300">{formatNumber(service.requests)}</span>
+                        </div>
+                      </div>
                     </div>
-                    <Button variant="outline" size="sm" className="border-white/20 text-white hover:bg-white/10">
-                      <BarChart3 className="h-4 w-4 mr-2" />
-                      View All
-                    </Button>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    {mockIncidents.map((incident) => (
-                      <div
-                        key={incident.id}
-                        className="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 hover:shadow-lg hover-lift cursor-pointer"
-                        onClick={() => setSelectedIncident(incident)}
-                      >
-                        <div className="flex items-center space-x-3">
-                          <div className={`h-3 w-3 rounded-full ${getStatusColor(incident.status)} pulse-dot ${incident.status}`} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Recent Incidents */}
+              <div className="bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 p-6">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-xl font-bold text-white">Recent Incidents</h3>
+                  <button className="text-blue-400 hover:text-blue-300 text-sm flex items-center">
+                    View All
+                    <ChevronRight className="h-4 w-4 ml-1" />
+                  </button>
+                </div>
+                
+                <div className="space-y-4">
+                  {mockIncidents.map((incident) => (
+                    <div key={incident.id} className="bg-white/5 rounded-xl border border-white/10 p-4 hover:bg-white/10 transition-colors cursor-pointer">
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-start space-x-3">
+                          <div className={`h-3 w-3 rounded-full ${getStatusColor(incident.status)} pulse-dot ${incident.status} mt-1`} />
                           <div>
-                            <div className="font-semibold text-white">{incident.title}</div>
-                            <div className="text-sm text-gray-400">
-                              {incident.service} • {incident.id}
+                            <div className="font-medium text-white mb-1">{incident.title}</div>
+                            <div className="text-sm text-gray-400 mb-2">{incident.service} • {incident.id}</div>
+                            <div className="flex items-center space-x-3">
+                              <Badge className={`border ${getSeverityColor(incident.severity)}`}>
+                                {incident.severity}
+                              </Badge>
+                              <div className="flex items-center space-x-1 text-xs text-gray-400">
+                                <Brain className="h-3 w-3" />
+                                <span>{incident.confidence}% confidence</span>
+                              </div>
                             </div>
                           </div>
                         </div>
-                        <div className="flex items-center space-x-2">
-                          <Badge className={`border ${getSeverityColor(incident.severity)}`}>
-                            {incident.severity}
-                          </Badge>
-                          <Badge variant="outline" className="flex items-center space-x-1 border-white/20 text-white">
-                            <Brain className="h-3 w-3" />
-                            <span>{incident.confidence}%</span>
-                          </Badge>
-                          <div className="text-sm text-gray-400">
-                            {incident.assignee}
+                        <div className="text-right">
+                          <div className="text-sm text-gray-400">{incident.assignee}</div>
+                          <div className="text-xs text-gray-500 mt-1">
+                            {new Date(incident.createdAt).toLocaleTimeString()}
                           </div>
                         </div>
                       </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* AI Analysis Insights */}
-              <Card className="glass-morphism-dark border-0 shadow-2xl">
-                <CardHeader>
-                  <CardTitle className="flex items-center space-x-2 text-white">
-                    <Sparkles className="h-5 w-5 text-purple-400" />
-                    <span>AI Analysis Insights</span>
-                  </CardTitle>
-                  <CardDescription className="text-gray-400">Recent AI-powered incident analysis results</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-1 gap-4">
-                    <div className="text-center p-6 rounded-xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 border border-blue-500/30">
-                      <div className="h-12 w-12 rounded-full bg-blue-500 flex items-center justify-center mx-auto mb-3">
-                        <Target className="h-6 w-6 text-white" />
-                      </div>
-                      <h4 className="font-semibold text-white mb-2">Root Cause Detection</h4>
-                      <div className="text-2xl font-bold text-blue-400 mb-1">91%</div>
-                      <p className="text-sm text-gray-400">Accuracy rate</p>
                     </div>
-                    
-                    <div className="text-center p-6 rounded-xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30">
-                      <div className="h-12 w-12 rounded-full bg-green-500 flex items-center justify-center mx-auto mb-3">
-                        <Search className="h-6 w-6 text-white" />
-                      </div>
-                      <h4 className="font-semibold text-white mb-2">Similar Incidents Found</h4>
-                      <div className="text-2xl font-bold text-green-400 mb-1">24</div>
-                      <p className="text-sm text-gray-400">In last 7 days</p>
-                    </div>
-                    
-                    <div className="text-center p-6 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30">
-                      <div className="h-12 w-12 rounded-full bg-purple-500 flex items-center justify-center mx-auto mb-3">
-                        <Bot className="h-6 w-6 text-white" />
-                      </div>
-                      <h4 className="font-semibold text-white mb-2">Automated Resolutions</h4>
-                      <div className="text-2xl font-bold text-purple-400 mb-1">67%</div>
-                      <p className="text-sm text-gray-400">Auto-fix success rate</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            {/* Performance Metrics */}
-            <Card className="glass-morphism-dark border-0 shadow-2xl mt-8">
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-2 text-white">
-                  <Activity className="h-5 w-5 text-green-400" />
-                  <span>Performance Metrics</span>
-                </CardTitle>
-                <CardDescription className="text-gray-400">System performance and response times</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="text-center p-6 rounded-xl bg-white/5 border border-white/10">
-                    <div className="text-3xl font-bold text-white mb-2">{formatDuration(mockMetrics.performance.avgResponseTime)}</div>
-                    <p className="text-sm text-gray-400">Average Response Time</p>
+            {/* Right Sidebar */}
+            <div className="space-y-6">
+              {/* AI Insights */}
+              <div className="bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 p-6">
+                <div className="flex items-center space-x-2 mb-6">
+                  <Sparkles className="h-5 w-5 text-purple-400" />
+                  <h3 className="text-xl font-bold text-white">AI Insights</h3>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="text-center p-4 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-700/20 border border-blue-500/30">
+                    <div className="h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center mx-auto mb-3">
+                      <Target className="h-5 w-5 text-white" />
+                    </div>
+                    <div className="text-2xl font-bold text-blue-400 mb-1">91%</div>
+                    <div className="text-sm text-gray-400">Detection Accuracy</div>
                   </div>
-                  <div className="text-center p-6 rounded-xl bg-white/5 border border-white/10">
-                    <div className="text-3xl font-bold text-white mb-2">{formatNumber(mockMetrics.performance.throughput)}</div>
-                    <p className="text-sm text-gray-400">Requests per Second</p>
+                  
+                  <div className="text-center p-4 rounded-xl bg-gradient-to-br from-green-500/20 to-green-700/20 border border-green-500/30">
+                    <div className="h-10 w-10 rounded-full bg-green-500 flex items-center justify-center mx-auto mb-3">
+                      <Search className="h-5 w-5 text-white" />
+                    </div>
+                    <div className="text-2xl font-bold text-green-400 mb-1">24</div>
+                    <div className="text-sm text-gray-400">Similar Incidents</div>
                   </div>
-                  <div className="text-center p-6 rounded-xl bg-white/5 border border-white/10">
-                    <div className="text-3xl font-bold text-white mb-2">{mockMetrics.performance.errorRate}%</div>
-                    <p className="text-sm text-gray-400">Error Rate</p>
+                  
+                  <div className="text-center p-4 rounded-xl bg-gradient-to-br from-purple-500/20 to-purple-700/20 border border-purple-500/30">
+                    <div className="h-10 w-10 rounded-full bg-purple-500 flex items-center justify-center mx-auto mb-3">
+                      <Bot className="h-5 w-5 text-white" />
+                    </div>
+                    <div className="text-2xl font-bold text-purple-400 mb-1">67%</div>
+                    <div className="text-sm text-gray-400">Auto-Fix Rate</div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+
+              {/* Quick Actions */}
+              <div className="bg-black/30 backdrop-blur-xl rounded-2xl border border-white/10 p-6">
+                <h3 className="text-xl font-bold text-white mb-6">Quick Actions</h3>
+                
+                <div className="space-y-3">
+                  <button className="w-full p-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-2">
+                    <Brain className="h-4 w-4" />
+                    <span>Run AI Analysis</span>
+                  </button>
+                  
+                  <button className="w-full p-3 rounded-xl bg-white/10 border border-white/20 text-white font-medium hover:bg-white/20 transition-colors flex items-center justify-center space-x-2">
+                    <AlertCircle className="h-4 w-4" />
+                    <span>Create Incident</span>
+                  </button>
+                  
+                  <button className="w-full p-3 rounded-xl bg-white/10 border border-white/20 text-white font-medium hover:bg-white/20 transition-colors flex items-center justify-center space-x-2">
+                    <BarChart3 className="h-4 w-4" />
+                    <span>View Reports</span>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
