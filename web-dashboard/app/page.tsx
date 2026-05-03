@@ -206,205 +206,287 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-950">
-      {/* Background Pattern */}
-      <div className="fixed inset-0 bg-gradient-to-br from-blue-950 via-purple-950 to-gray-950">
-        <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" />
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+      {/* Animated Background */}
+      <div className="fixed inset-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 animate-pulse" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
       </div>
 
       <div className="relative z-10">
-        {/* Header */}
-        <div className="border-b border-gray-800 bg-gray-900/50 backdrop-blur-xl">
+        {/* Modern Header */}
+        <div className="bg-black/20 backdrop-blur-xl border-b border-white/10">
           <div className="px-8 py-6">
             <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-4">
-                <div className="flex items-center space-x-3">
-                  <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-                    <Shield className="h-7 w-7 text-white" />
+              <div className="flex items-center space-x-8">
+                <div className="flex items-center space-x-4">
+                  <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 flex items-center justify-center shadow-lg shadow-blue-500/25">
+                    <Shield className="h-8 w-8 text-white" />
                   </div>
                   <div>
-                    <h1 className="text-2xl font-bold text-white">OpsSage</h1>
-                    <p className="text-sm text-gray-400">Real-time System Monitoring</p>
+                    <h1 className="text-3xl font-bold text-white bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">OpsSage</h1>
+                    <p className="text-sm text-gray-300 font-medium">AI-Powered Operations Intelligence</p>
                   </div>
                 </div>
+                
+                <nav className="hidden md:flex items-center space-x-8">
+                  <button className="text-white font-semibold hover:text-blue-400 transition-colors relative">
+                    Dashboard
+                    <div className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-400" />
+                  </button>
+                  <button className="text-gray-300 hover:text-white transition-colors">Incidents</button>
+                  <button className="text-gray-300 hover:text-white transition-colors">Services</button>
+                  <button className="text-gray-300 hover:text-white transition-colors">Analytics</button>
+                  <button className="text-gray-300 hover:text-white transition-colors">Settings</button>
+                </nav>
               </div>
               
               <div className="flex items-center space-x-6">
-                <div className="flex items-center space-x-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20">
-                  <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-sm text-green-400 font-medium">All Systems Operational</span>
+                <div className="flex items-center space-x-3 px-4 py-2 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30">
+                  <div className="h-3 w-3 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/50" />
+                  <span className="text-sm text-green-400 font-semibold">All Systems Operational</span>
                 </div>
-                <button className="p-2 rounded-lg hover:bg-gray-800 transition-colors">
-                  <Bell className="h-5 w-5 text-gray-400" />
+                <button className="p-3 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-105">
+                  <Bell className="h-5 w-5 text-gray-300" />
                 </button>
-                <button className="p-2 rounded-lg hover:bg-gray-800 transition-colors">
-                  <Settings className="h-5 w-5 text-gray-400" />
+                <button className="p-3 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-105">
+                  <Settings className="h-5 w-5 text-gray-300" />
                 </button>
+                <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-lg shadow-purple-500/25">
+                  <User className="h-5 w-5 text-white" />
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Main Content */}
+        {/* Main Dashboard */}
         <div className="p-8">
-          {/* KPI Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-6 hover:border-blue-500/50 transition-all duration-300">
-              <div className="flex items-center justify-between mb-4">
-                <div className="p-3 rounded-xl bg-blue-500/10">
-                  <Activity className="h-6 w-6 text-blue-400" />
-                </div>
-                <div className="flex items-center text-green-400 text-sm">
-                  <ArrowUpRight className="h-4 w-4 mr-1" />
-                  <span className="font-medium">12.5%</span>
-                </div>
+          {/* Hero Section with Key Metrics */}
+          <div className="mb-12">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="text-4xl font-bold text-white mb-2">System Overview</h2>
+                <p className="text-lg text-gray-300">Real-time monitoring and AI-powered insights</p>
               </div>
-              <div className="text-3xl font-bold text-white mb-2">{formatNumber(mockMetrics.performance.throughput)}</div>
-              <div className="text-sm text-gray-400 mb-4">Requests per Second</div>
-              <LineChart data={requestData.slice(-8)} color="#3B82F6" height={60} />
-            </div>
-
-            <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-6 hover:border-green-500/50 transition-all duration-300">
-              <div className="flex items-center justify-between mb-4">
-                <div className="p-3 rounded-xl bg-green-500/10">
-                  <CheckCircle className="h-6 w-6 text-green-400" />
-                </div>
-                <div className="flex items-center text-green-400 text-sm">
-                  <ArrowUpRight className="h-4 w-4 mr-1" />
-                  <span className="font-medium">0.2%</span>
-                </div>
-              </div>
-              <div className="text-3xl font-bold text-white mb-2">{mockMetrics.uptime.overall}%</div>
-              <div className="text-sm text-gray-400 mb-4">System Uptime</div>
-              <div className="h-16 flex items-end justify-between">
-                {[99.9, 99.8, 99.7, 99.9, 99.8, 99.7, 99.9, 99.7].map((value, index) => (
-                  <div key={index} className="w-8 bg-green-500/20 rounded-t" style={{ height: `${(value - 99) * 100}%` }} />
-                ))}
+              <div className="flex items-center space-x-4">
+                <button className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg shadow-blue-500/25 hover:scale-105">
+                  <Brain className="h-4 w-4 mr-2 inline" />
+                  Run AI Analysis
+                </button>
+                <button className="px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-semibold hover:bg-white/20 transition-all duration-300">
+                  <BarChart3 className="h-4 w-4 mr-2 inline" />
+                  Export Report
+                </button>
               </div>
             </div>
 
-            <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-6 hover:border-purple-500/50 transition-all duration-300">
-              <div className="flex items-center justify-between mb-4">
-                <div className="p-3 rounded-xl bg-purple-500/10">
-                  <Clock className="h-6 w-6 text-purple-400" />
-                </div>
-                <div className="flex items-center text-green-400 text-sm">
-                  <ArrowDownRight className="h-4 w-4 mr-1" />
-                  <span className="font-medium">-28%</span>
-                </div>
-              </div>
-              <div className="text-3xl font-bold text-white mb-2">{mockMetrics.mttr.current}m</div>
-              <div className="text-sm text-gray-400 mb-4">Mean Time to Recovery</div>
-              <LineChart data={[45, 42, 38, 35, 30, 25, 20, 12.5]} color="#A855F7" height={60} />
-            </div>
-
-            <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-6 hover:border-orange-500/50 transition-all duration-300">
-              <div className="flex items-center justify-between mb-4">
-                <div className="p-3 rounded-xl bg-orange-500/10">
-                  <AlertTriangle className="h-6 w-6 text-orange-400" />
-                </div>
-                <div className="flex items-center text-red-400 text-sm">
-                  <ArrowUpRight className="h-4 w-4 mr-1" />
-                  <span className="font-medium">+15%</span>
-                </div>
-              </div>
-              <div className="text-3xl font-bold text-white mb-2">{mockMetrics.incidents.today}</div>
-              <div className="text-sm text-gray-400 mb-4">Active Incidents</div>
-              <BarChart data={incidentData} color="#F97316" height={60} />
-            </div>
-          </div>
-
-          {/* Charts Row */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-            <div className="lg:col-span-2 bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold text-white">Performance Trends</h3>
-                <div className="flex items-center space-x-2">
-                  <button className="px-3 py-1 text-sm rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20">1D</button>
-                  <button className="px-3 py-1 text-sm rounded-lg text-gray-400 hover:bg-gray-800">1W</button>
-                  <button className="px-3 py-1 text-sm rounded-lg text-gray-400 hover:bg-gray-800">1M</button>
-                </div>
-              </div>
-              <LineChart data={performanceData} color="#3B82F6" height={200} />
-              <div className="grid grid-cols-3 gap-4 mt-6">
-                <div>
-                  <div className="text-sm text-gray-400">Avg Response</div>
-                  <div className="text-lg font-bold text-white">{formatDuration(mockMetrics.performance.avgResponseTime)}</div>
-                </div>
-                <div>
-                  <div className="text-sm text-gray-400">Peak Load</div>
-                  <div className="text-lg font-bold text-white">16.2K req/s</div>
-                </div>
-                <div>
-                  <div className="text-sm text-gray-400">Error Rate</div>
-                  <div className="text-lg font-bold text-white">{mockMetrics.performance.errorRate}%</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold text-white">Service Distribution</h3>
-                <PieChartIcon className="h-5 w-5 text-gray-400" />
-              </div>
-              <PieChart data={serviceDistribution} colors={['#3B82F6', '#10B981', '#F59E0B', '#EF4444']} height={200} />
-              <div className="space-y-2 mt-6">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <div className="h-3 w-3 rounded-full bg-blue-500" />
-                    <span className="text-sm text-gray-400">API Gateway</span>
-                  </div>
-                  <span className="text-sm text-white font-medium">35%</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <div className="h-3 w-3 rounded-full bg-green-500" />
-                    <span className="text-sm text-gray-400">Checkout</span>
-                  </div>
-                  <span className="text-sm text-white font-medium">25%</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <div className="h-3 w-3 rounded-full bg-yellow-500" />
-                    <span className="text-sm text-gray-400">Payment</span>
-                  </div>
-                  <span className="text-sm text-white font-medium">20%</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <div className="h-3 w-3 rounded-full bg-red-500" />
-                    <span className="text-sm text-gray-400">User Service</span>
-                  </div>
-                  <span className="text-sm text-white font-medium">20%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Services and Incidents */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold text-white">Service Health</h3>
-                <button className="text-blue-400 hover:text-blue-300 text-sm">View All</button>
-              </div>
-              <div className="space-y-4">
-                {mockServices.map((service) => (
-                  <div key={service.name} className="bg-gray-800/50 rounded-xl p-4 border border-gray-700">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center space-x-3">
-                        <div className={`h-3 w-3 rounded-full ${getStatusColor(service.status)} animate-pulse`} />
-                        <span className="font-medium text-white">{service.name}</span>
-                      </div>
-                      <span className="text-sm text-gray-400">{service.uptime}% uptime</span>
+            {/* Impressive KPI Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-blue-800/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+                <div className="relative bg-gradient-to-br from-blue-600/10 to-blue-800/10 backdrop-blur-xl border border-blue-500/30 rounded-3xl p-8 hover:border-blue-400/50 transition-all duration-300 hover:scale-105">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 shadow-lg shadow-blue-500/25">
+                      <Activity className="h-7 w-7 text-white" />
                     </div>
-                    <div className="grid grid-cols-3 gap-4 text-sm">
+                    <div className="flex items-center text-green-400 font-bold text-lg">
+                      <ArrowUpRight className="h-5 w-5 mr-1" />
+                      12.5%
+                    </div>
+                  </div>
+                  <div className="text-4xl font-bold text-white mb-3">{formatNumber(mockMetrics.performance.throughput)}</div>
+                  <div className="text-lg text-gray-300 mb-6">Requests per Second</div>
+                  <div className="h-20">
+                    <LineChart data={requestData.slice(-8)} color="#3B82F6" height={80} />
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-green-600/20 to-green-800/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+                <div className="relative bg-gradient-to-br from-green-600/10 to-green-800/10 backdrop-blur-xl border border-green-500/30 rounded-3xl p-8 hover:border-green-400/50 transition-all duration-300 hover:scale-105">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="p-4 rounded-2xl bg-gradient-to-br from-green-500 to-green-600 shadow-lg shadow-green-500/25">
+                      <CheckCircle className="h-7 w-7 text-white" />
+                    </div>
+                    <div className="flex items-center text-green-400 font-bold text-lg">
+                      <ArrowUpRight className="h-5 w-5 mr-1" />
+                      0.2%
+                    </div>
+                  </div>
+                  <div className="text-4xl font-bold text-white mb-3">{mockMetrics.uptime.overall}%</div>
+                  <div className="text-lg text-gray-300 mb-6">System Uptime</div>
+                  <div className="h-20 flex items-end justify-between">
+                    {[99.9, 99.8, 99.7, 99.9, 99.8, 99.7, 99.9, 99.7].map((value, index) => (
+                      <div key={index} className="w-6 bg-gradient-to-t from-green-600 to-green-400 rounded-t" style={{ height: `${(value - 99) * 100}%` }} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-purple-800/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+                <div className="relative bg-gradient-to-br from-purple-600/10 to-purple-800/10 backdrop-blur-xl border border-purple-500/30 rounded-3xl p-8 hover:border-purple-400/50 transition-all duration-300 hover:scale-105">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 shadow-lg shadow-purple-500/25">
+                      <Clock className="h-7 w-7 text-white" />
+                    </div>
+                    <div className="flex items-center text-green-400 font-bold text-lg">
+                      <ArrowDownRight className="h-5 w-5 mr-1" />
+                      28%
+                    </div>
+                  </div>
+                  <div className="text-4xl font-bold text-white mb-3">{mockMetrics.mttr.current}m</div>
+                  <div className="text-lg text-gray-300 mb-6">Mean Time to Recovery</div>
+                  <div className="h-20">
+                    <LineChart data={[45, 42, 38, 35, 30, 25, 20, 12.5]} color="#A855F7" height={80} />
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-600/20 to-orange-800/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+                <div className="relative bg-gradient-to-br from-orange-600/10 to-orange-800/10 backdrop-blur-xl border border-orange-500/30 rounded-3xl p-8 hover:border-orange-400/50 transition-all duration-300 hover:scale-105">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="p-4 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 shadow-lg shadow-orange-500/25">
+                      <AlertTriangle className="h-7 w-7 text-white" />
+                    </div>
+                    <div className="flex items-center text-red-400 font-bold text-lg">
+                      <ArrowUpRight className="h-5 w-5 mr-1" />
+                      15%
+                    </div>
+                  </div>
+                  <div className="text-4xl font-bold text-white mb-3">{mockMetrics.incidents.today}</div>
+                  <div className="text-lg text-gray-300 mb-6">Active Incidents</div>
+                  <div className="h-20">
+                    <BarChart data={incidentData} color="#F97316" height={80} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Main Content Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Performance Chart - Large */}
+            <div className="lg:col-span-2">
+              <div className="bg-black/30 backdrop-blur-xl border border-white/10 rounded-3xl p-8">
+                <div className="flex items-center justify-between mb-8">
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-2">Performance Analytics</h3>
+                    <p className="text-gray-400">Real-time system performance metrics</p>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <button className="px-4 py-2 text-sm rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20 font-medium">1D</button>
+                    <button className="px-4 py-2 text-sm rounded-xl text-gray-400 hover:bg-white/10 font-medium">1W</button>
+                    <button className="px-4 py-2 text-sm rounded-xl text-gray-400 hover:bg-white/10 font-medium">1M</button>
+                  </div>
+                </div>
+                
+                <div className="mb-8">
+                  <LineChart data={performanceData} color="#3B82F6" height={300} />
+                </div>
+                
+                <div className="grid grid-cols-3 gap-6">
+                  <div className="bg-gradient-to-br from-blue-600/10 to-blue-800/10 rounded-2xl p-6 border border-blue-500/20">
+                    <div className="text-sm text-gray-400 mb-2">Average Response</div>
+                    <div className="text-2xl font-bold text-white">{formatDuration(mockMetrics.performance.avgResponseTime)}</div>
+                    <div className="text-xs text-green-400 mt-2">↓ 15% from last week</div>
+                  </div>
+                  <div className="bg-gradient-to-br from-purple-600/10 to-purple-800/10 rounded-2xl p-6 border border-purple-500/20">
+                    <div className="text-sm text-gray-400 mb-2">Peak Load</div>
+                    <div className="text-2xl font-bold text-white">16.2K req/s</div>
+                    <div className="text-xs text-green-400 mt-2">↑ 8% from yesterday</div>
+                  </div>
+                  <div className="bg-gradient-to-br from-orange-600/10 to-orange-800/10 rounded-2xl p-6 border border-orange-500/20">
+                    <div className="text-sm text-gray-400 mb-2">Error Rate</div>
+                    <div className="text-2xl font-bold text-white">{mockMetrics.performance.errorRate}%</div>
+                    <div className="text-xs text-red-400 mt-2">↑ 0.3% from baseline</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Service Distribution */}
+            <div>
+              <div className="bg-black/30 backdrop-blur-xl border border-white/10 rounded-3xl p-8">
+                <div className="flex items-center justify-between mb-8">
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-2">Service Load</h3>
+                    <p className="text-gray-400">Traffic distribution</p>
+                  </div>
+                  <PieChartIcon className="h-6 w-6 text-gray-400" />
+                </div>
+                
+                <div className="mb-8">
+                  <PieChart data={serviceDistribution} colors={['#3B82F6', '#10B981', '#F59E0B', '#EF4444']} height={250} />
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-blue-500/10 border border-blue-500/20">
+                    <div className="flex items-center space-x-3">
+                      <div className="h-4 w-4 rounded-full bg-blue-500" />
+                      <span className="text-white font-medium">API Gateway</span>
+                    </div>
+                    <span className="text-blue-400 font-bold">35%</span>
+                  </div>
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-green-500/10 border border-green-500/20">
+                    <div className="flex items-center space-x-3">
+                      <div className="h-4 w-4 rounded-full bg-green-500" />
+                      <span className="text-white font-medium">Checkout</span>
+                    </div>
+                    <span className="text-green-400 font-bold">25%</span>
+                  </div>
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-yellow-500/10 border border-yellow-500/20">
+                    <div className="flex items-center space-x-3">
+                      <div className="h-4 w-4 rounded-full bg-yellow-500" />
+                      <span className="text-white font-medium">Payment</span>
+                    </div>
+                    <span className="text-yellow-400 font-bold">20%</span>
+                  </div>
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-red-500/10 border border-red-500/20">
+                    <div className="flex items-center space-x-3">
+                      <div className="h-4 w-4 rounded-full bg-red-500" />
+                      <span className="text-white font-medium">User Service</span>
+                    </div>
+                    <span className="text-red-400 font-bold">20%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Section - Services and Incidents */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+            {/* Service Health */}
+            <div className="bg-black/30 backdrop-blur-xl border border-white/10 rounded-3xl p-8">
+              <div className="flex items-center justify-between mb-8">
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-2">Service Health</h3>
+                  <p className="text-gray-400">Real-time service monitoring</p>
+                </div>
+                <button className="text-blue-400 hover:text-blue-300 font-medium">View All →</button>
+              </div>
+              
+              <div className="space-y-6">
+                {mockServices.map((service) => (
+                  <div key={service.name} className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center space-x-4">
+                        <div className={`h-4 w-4 rounded-full ${getStatusColor(service.status)} animate-pulse shadow-lg`} />
+                        <span className="text-lg font-semibold text-white">{service.name}</span>
+                      </div>
+                      <span className="text-lg text-gray-300">{service.uptime}% uptime</span>
+                    </div>
+                    
+                    <div className="grid grid-cols-3 gap-6">
                       <div>
-                        <div className="text-gray-400">CPU</div>
-                        <div className="flex items-center space-x-2 mt-1">
-                          <div className="flex-1 h-2 bg-gray-700 rounded-full overflow-hidden">
+                        <div className="text-sm text-gray-400 mb-2">CPU Usage</div>
+                        <div className="flex items-center space-x-3">
+                          <div className="flex-1 h-3 bg-gray-700 rounded-full overflow-hidden">
                             <div 
                               className={`h-full rounded-full ${
                                 service.cpu > 80 ? 'bg-red-500' : 
@@ -413,13 +495,13 @@ export default function Dashboard() {
                               style={{ width: `${service.cpu}%` }}
                             />
                           </div>
-                          <span className="text-gray-300">{service.cpu}%</span>
+                          <span className="text-white font-bold">{service.cpu}%</span>
                         </div>
                       </div>
                       <div>
-                        <div className="text-gray-400">Memory</div>
-                        <div className="flex items-center space-x-2 mt-1">
-                          <div className="flex-1 h-2 bg-gray-700 rounded-full overflow-hidden">
+                        <div className="text-sm text-gray-400 mb-2">Memory</div>
+                        <div className="flex items-center space-x-3">
+                          <div className="flex-1 h-3 bg-gray-700 rounded-full overflow-hidden">
                             <div 
                               className={`h-full rounded-full ${
                                 service.memory > 80 ? 'bg-red-500' : 
@@ -428,12 +510,12 @@ export default function Dashboard() {
                               style={{ width: `${service.memory}%` }}
                             />
                           </div>
-                          <span className="text-gray-300">{service.memory}%</span>
+                          <span className="text-white font-bold">{service.memory}%</span>
                         </div>
                       </div>
                       <div>
-                        <div className="text-gray-400">Errors</div>
-                        <div className="text-gray-300 mt-1">{service.errors}%</div>
+                        <div className="text-sm text-gray-400 mb-2">Errors</div>
+                        <div className="text-white font-bold">{service.errors}%</div>
                       </div>
                     </div>
                   </div>
@@ -441,34 +523,39 @@ export default function Dashboard() {
               </div>
             </div>
 
-            <div className="bg-gray-900/50 backdrop-blur-xl border border-gray-800 rounded-2xl p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold text-white">Recent Incidents</h3>
-                <button className="text-blue-400 hover:text-blue-300 text-sm">View All</button>
+            {/* Recent Incidents */}
+            <div className="bg-black/30 backdrop-blur-xl border border-white/10 rounded-3xl p-8">
+              <div className="flex items-center justify-between mb-8">
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-2">Recent Incidents</h3>
+                  <p className="text-gray-400">Latest system events</p>
+                </div>
+                <button className="text-blue-400 hover:text-blue-300 font-medium">View All →</button>
               </div>
-              <div className="space-y-4">
+              
+              <div className="space-y-6">
                 {mockIncidents.map((incident) => (
-                  <div key={incident.id} className="bg-gray-800/50 rounded-xl p-4 border border-gray-700 hover:border-gray-600 transition-colors">
+                  <div key={incident.id} className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
                     <div className="flex items-start justify-between">
-                      <div className="flex items-start space-x-3">
-                        <div className={`h-3 w-3 rounded-full mt-1 ${getStatusColor(incident.status)} animate-pulse`} />
+                      <div className="flex items-start space-x-4">
+                        <div className={`h-4 w-4 rounded-full mt-1 ${getStatusColor(incident.status)} animate-pulse shadow-lg`} />
                         <div className="flex-1">
-                          <div className="font-medium text-white mb-1">{incident.title}</div>
-                          <div className="text-sm text-gray-400 mb-2">{incident.service} • {incident.id}</div>
-                          <div className="flex items-center space-x-3">
-                            <Badge className={`border ${getSeverityColor(incident.severity)}`}>
+                          <div className="text-lg font-semibold text-white mb-2">{incident.title}</div>
+                          <div className="text-gray-400 mb-3">{incident.service} • {incident.id}</div>
+                          <div className="flex items-center space-x-4">
+                            <Badge className={`border ${getSeverityColor(incident.severity)} font-medium`}>
                               {incident.severity}
                             </Badge>
-                            <div className="flex items-center space-x-1 text-xs text-gray-400">
-                              <Brain className="h-3 w-3" />
+                            <div className="flex items-center space-x-2 text-sm text-gray-400">
+                              <Brain className="h-4 w-4" />
                               <span>{incident.confidence}% confidence</span>
                             </div>
                           </div>
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-sm text-gray-400">{incident.assignee}</div>
-                        <div className="text-xs text-gray-500 mt-1">
+                        <div className="text-gray-300 font-medium">{incident.assignee}</div>
+                        <div className="text-sm text-gray-500 mt-1">
                           {new Date(incident.createdAt).toLocaleTimeString()}
                         </div>
                       </div>
