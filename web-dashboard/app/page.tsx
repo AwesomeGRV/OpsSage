@@ -232,420 +232,425 @@ export default function Dashboard() {
       </div>
 
       <div className="relative z-10">
-        {/* Modern Sidebar Layout */}
-        <div className="flex h-screen">
-          {/* Sidebar */}
-          <aside className="w-64 bg-slate-900/50 backdrop-blur-xl border-r border-slate-800/50">
-            <div className="p-6">
-              <div className="flex items-center space-x-3">
-                <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                  <Shield className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h1 className="text-xl font-bold text-white">OpsSage</h1>
-                  <p className="text-xs text-slate-400">Enterprise Platform</p>
-                </div>
-              </div>
-            </div>
-
-            <nav className="px-4 pb-6">
-              <div className="space-y-1">
-                <button className="w-full px-4 py-2.5 text-sm font-medium text-white bg-blue-600/20 rounded-lg border border-blue-500/30">
-                  Dashboard
-                </button>
-                <button className="w-full px-4 py-2.5 text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">
-                  Infrastructure
-                </button>
-                <button className="w-full px-4 py-2.5 text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">
-                  Monitoring
-                </button>
-                <button className="w-full px-4 py-2.5 text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">
-                  Security
-                </button>
-                <button className="w-full px-4 py-2.5 text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">
-                  Analytics
-                </button>
-              </div>
-            </nav>
-
-            <div className="px-4 pb-6 mt-auto">
-              <div className="bg-slate-800/50 rounded-lg p-4">
-                <div className="flex items-center space-x-3 mb-3">
-                  <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-sm text-slate-300">System Status</span>
-                </div>
-                <div className="text-lg font-semibold text-white">Operational</div>
-                <div className="text-xs text-slate-400">All services running</div>
-              </div>
-            </div>
-          </aside>
-
-          {/* Main Content */}
-          <main className="flex-1 overflow-auto">
-            {/* Top Header */}
-            <header className="bg-slate-900/30 backdrop-blur-xl border-b border-slate-800/50">
-              <div className="px-8 py-4">
-                <div className="flex items-center justify-between">
+        {/* Top Navigation Bar */}
+        <header className="bg-slate-900/50 backdrop-blur-xl border-b border-slate-800/50">
+          <div className="px-8 py-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-8">
+                <div className="flex items-center space-x-4">
+                  <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                    <Shield className="h-6 w-6 text-white" />
+                  </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-white">Dashboard Overview</h2>
-                    <p className="text-sm text-slate-400">Real-time system monitoring and insights</p>
+                    <h1 className="text-xl font-bold text-white">OpsSage</h1>
+                    <p className="text-xs text-slate-400">Enterprise Platform</p>
                   </div>
-                  <div className="flex items-center space-x-4">
-                    <button className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors flex items-center space-x-2">
-                      <Calendar className="h-4 w-4" />
-                      <span>Last 24h</span>
-                    </button>
-                    <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors flex items-center space-x-2">
-                      <RefreshCw className="h-4 w-4" />
-                      <span>Refresh</span>
-                    </button>
-                    <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                      <User className="h-4 w-4 text-white" />
-                    </div>
-                  </div>
+                </div>
+                
+                <nav className="hidden lg:flex items-center space-x-6">
+                  <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600/20 rounded-lg border border-blue-500/30">
+                    Dashboard
+                  </button>
+                  <button className="px-4 py-2 text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">
+                    Infrastructure
+                  </button>
+                  <button className="px-4 py-2 text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">
+                    Monitoring
+                  </button>
+                  <button className="px-4 py-2 text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">
+                    Security
+                  </button>
+                  <button className="px-4 py-2 text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">
+                    Analytics
+                  </button>
+                </nav>
+              </div>
+              
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-3 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30">
+                  <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+                  <span className="text-sm text-green-400 font-medium">System Online</span>
+                </div>
+                <button className="p-2 rounded-lg hover:bg-slate-800/50 transition-colors">
+                  <Search className="h-4 w-4 text-slate-300" />
+                </button>
+                <button className="p-2 rounded-lg hover:bg-slate-800/50 transition-colors relative">
+                  <Bell className="h-4 w-4 text-slate-300" />
+                  <div className="absolute top-1 right-1 h-2 w-2 rounded-full bg-red-500" />
+                </button>
+                <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                  <User className="h-4 w-4 text-white" />
                 </div>
               </div>
-            </header>
+            </div>
+          </div>
+        </header>
 
-            <div className="p-8">
-              {/* Metrics Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-blue-600/10 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-                  <div className="relative bg-slate-900/50 backdrop-blur-xl border border-blue-500/20 rounded-xl p-6 hover:border-blue-400/40 transition-all duration-300">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="p-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg shadow-blue-500/25">
-                        <Server className="h-6 w-6 text-white" />
-                      </div>
-                      <div className="flex items-center text-green-400 font-bold text-sm">
-                        <ArrowUpRight className="h-4 w-4 mr-1" />
-                        12.5%
-                      </div>
+        {/* Main Content - Full Width Layout */}
+        <main className="w-full">
+          {/* Page Header */}
+          <div className="px-8 py-6 border-b border-slate-800/50">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-3xl font-bold text-white">Dashboard Overview</h2>
+                <p className="text-slate-400">Real-time system monitoring and insights</p>
+              </div>
+              <div className="flex items-center space-x-4">
+                <button className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors flex items-center space-x-2">
+                  <Calendar className="h-4 w-4" />
+                  <span>Last 24h</span>
+                </button>
+                <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors flex items-center space-x-2">
+                  <RefreshCw className="h-4 w-4" />
+                  <span>Refresh</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Horizontal Layout - Full Width Dashboard */}
+          <div className="px-8 py-6">
+            {/* Metrics Row - Full Width */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-4 mb-8">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-blue-600/10 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+                <div className="relative bg-slate-900/50 backdrop-blur-xl border border-blue-500/20 rounded-xl p-4 hover:border-blue-400/40 transition-all duration-300">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="p-2 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg shadow-lg shadow-blue-500/25">
+                      <Server className="h-4 w-4 text-white" />
                     </div>
-                    <div className="text-4xl font-bold text-white mb-2">247</div>
-                    <div className="text-sm text-slate-300 font-medium">Active Servers</div>
-                    <div className="mt-4 h-12">
-                      <div className="flex items-end justify-between h-full">
-                        {[40, 65, 45, 80, 60, 90, 75, 85].map((height, index) => (
-                          <div key={index} className="w-2 bg-gradient-to-t from-blue-600 to-blue-400 rounded-t" style={{ height: `${height}%` }} />
-                        ))}
-                      </div>
+                    <div className="flex items-center text-green-400 font-bold text-xs">
+                      <ArrowUpRight className="h-3 w-3 mr-1" />
+                      12.5%
                     </div>
                   </div>
-                </div>
-
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-green-600/10 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-                  <div className="relative bg-slate-900/50 backdrop-blur-xl border border-green-500/20 rounded-xl p-6 hover:border-green-400/40 transition-all duration-300">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="p-3 bg-gradient-to-br from-green-500 to-green-600 rounded-xl shadow-lg shadow-green-500/25">
-                        <Activity className="h-6 w-6 text-white" />
-                      </div>
-                      <div className="flex items-center text-green-400 font-bold text-sm">
-                        <ArrowUpRight className="h-4 w-4 mr-1" />
-                        8.2%
-                      </div>
-                    </div>
-                    <div className="text-4xl font-bold text-white mb-2">99.97%</div>
-                    <div className="text-sm text-slate-300 font-medium">System Uptime</div>
-                    <div className="mt-4 flex items-center space-x-1">
-                      <div className="h-2 flex-1 bg-green-500 rounded-full" />
-                      <div className="h-2 flex-1 bg-green-500 rounded-full" />
-                      <div className="h-2 flex-1 bg-green-500 rounded-full" />
-                      <div className="h-2 flex-1 bg-green-500 rounded-full" />
-                      <div className="h-2 w-1 bg-green-500 rounded-full" />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-purple-600/10 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-                  <div className="relative bg-slate-900/50 backdrop-blur-xl border border-purple-500/20 rounded-xl p-6 hover:border-purple-400/40 transition-all duration-300">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="p-3 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl shadow-lg shadow-purple-500/25">
-                        <Zap className="h-6 w-6 text-white" />
-                      </div>
-                      <div className="flex items-center text-red-400 font-bold text-sm">
-                        <ArrowDownRight className="h-4 w-4 mr-1" />
-                        3.1%
-                      </div>
-                    </div>
-                    <div className="text-4xl font-bold text-white mb-2">1.2M</div>
-                    <div className="text-sm text-slate-300 font-medium">Requests/min</div>
-                    <div className="mt-4 h-12">
-                      <div className="flex items-center justify-center h-full">
-                        <div className="relative">
-                          <div className="h-10 w-10 rounded-full border-4 border-purple-500/30" />
-                          <div className="absolute inset-0 h-10 w-10 rounded-full border-4 border-purple-500 border-t-transparent animate-spin" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-orange-600/10 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-                  <div className="relative bg-slate-900/50 backdrop-blur-xl border border-orange-500/20 rounded-xl p-6 hover:border-orange-400/40 transition-all duration-300">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="p-3 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl shadow-lg shadow-orange-500/25">
-                        <AlertTriangle className="h-6 w-6 text-white" />
-                      </div>
-                      <div className="flex items-center text-red-400 font-bold text-sm">
-                        <ArrowUpRight className="h-4 w-4 mr-1" />
-                        2
-                      </div>
-                    </div>
-                    <div className="text-4xl font-bold text-white mb-2">8</div>
-                    <div className="text-sm text-slate-300 font-medium">Active Alerts</div>
-                    <div className="mt-4 flex items-center justify-center">
-                      <div className="relative">
-                        <div className="h-3 w-3 rounded-full bg-orange-500 animate-pulse" />
-                        <div className="absolute inset-0 h-3 w-3 rounded-full bg-orange-500 animate-ping" />
-                      </div>
-                    </div>
-                  </div>
+                  <div className="text-2xl font-bold text-white mb-1">247</div>
+                  <div className="text-xs text-slate-300 font-medium">Active Servers</div>
                 </div>
               </div>
 
-              {/* Main Content Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {/* Performance Chart */}
-                <div className="lg:col-span-2 bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-lg font-semibold text-white">Performance Overview</h3>
-                    <div className="flex items-center space-x-2">
-                      <button className="px-3 py-1 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/50 rounded transition-colors">1D</button>
-                      <button className="px-3 py-1 text-xs font-medium text-white bg-blue-600/20 rounded border border-blue-500/30">1W</button>
-                      <button className="px-3 py-1 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/50 rounded transition-colors">1M</button>
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-green-600/10 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+                <div className="relative bg-slate-900/50 backdrop-blur-xl border border-green-500/20 rounded-xl p-4 hover:border-green-400/40 transition-all duration-300">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="p-2 bg-gradient-to-br from-green-500 to-green-600 rounded-lg shadow-lg shadow-green-500/25">
+                      <Activity className="h-4 w-4 text-white" />
+                    </div>
+                    <div className="flex items-center text-green-400 font-bold text-xs">
+                      <ArrowUpRight className="h-3 w-3 mr-1" />
+                      8.2%
                     </div>
                   </div>
-                  
-                  <div className="h-64 bg-slate-800/30 rounded-lg p-4 mb-6">
-                    <div className="h-full flex items-end justify-between">
-                      {[30, 45, 35, 50, 40, 60, 45, 55, 40, 65, 50, 70].map((height, index) => (
-                        <div key={index} className="flex-1 mx-0.5">
-                          <div 
-                            className="w-full bg-gradient-to-t from-blue-600 to-blue-400 rounded-t"
-                            style={{ height: `${height}%` }}
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-3 gap-4">
-                    <div className="bg-slate-800/50 rounded-lg p-4">
-                      <div className="text-sm text-slate-400 mb-1">Avg Response</div>
-                      <div className="text-lg font-semibold text-white">145ms</div>
-                      <div className="text-xs text-green-400">↓ 15%</div>
-                    </div>
-                    <div className="bg-slate-800/50 rounded-lg p-4">
-                      <div className="text-sm text-slate-400 mb-1">Error Rate</div>
-                      <div className="text-lg font-semibold text-white">0.12%</div>
-                      <div className="text-xs text-red-400">↑ 0.3%</div>
-                    </div>
-                    <div className="bg-slate-800/50 rounded-lg p-4">
-                      <div className="text-sm text-slate-400 mb-1">Throughput</div>
-                      <div className="text-lg font-semibold text-white">12.5K/s</div>
-                      <div className="text-xs text-green-400">↑ 8%</div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Infrastructure Status */}
-                <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-lg font-semibold text-white">Infrastructure</h3>
-                    <button className="text-sm text-blue-400 hover:text-blue-300 font-medium">View All →</button>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    <div className="group relative">
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <div className="relative flex items-center justify-between p-4 bg-slate-800/50 rounded-lg border border-blue-500/20 hover:border-blue-400/40 transition-all">
-                        <div className="flex items-center space-x-4">
-                          <div className="p-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg shadow-blue-500/25">
-                            <Cloud className="h-5 w-5 text-white" />
-                          </div>
-                          <div>
-                            <div className="text-sm font-semibold text-white">Cloud Services</div>
-                            <div className="text-xs text-slate-400">AWS, GCP, Azure</div>
-                          </div>
-                        </div>
-                        <div className="flex items-center space-x-3">
-                          <div className="text-right">
-                            <div className="text-xs text-slate-400">Load</div>
-                            <div className="text-sm font-medium text-white">67%</div>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <div className="h-3 w-3 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/50" />
-                            <span className="text-xs text-green-400 font-medium">Healthy</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="group relative">
-                      <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <div className="relative flex items-center justify-between p-4 bg-slate-800/50 rounded-lg border border-green-500/20 hover:border-green-400/40 transition-all">
-                        <div className="flex items-center space-x-4">
-                          <div className="p-3 bg-gradient-to-br from-green-500 to-green-600 rounded-xl shadow-lg shadow-green-500/25">
-                            <Database className="h-5 w-5 text-white" />
-                          </div>
-                          <div>
-                            <div className="text-sm font-semibold text-white">Databases</div>
-                            <div className="text-xs text-slate-400">PostgreSQL, Redis</div>
-                          </div>
-                        </div>
-                        <div className="flex items-center space-x-3">
-                          <div className="text-right">
-                            <div className="text-xs text-slate-400">Load</div>
-                            <div className="text-sm font-medium text-white">42%</div>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <div className="h-3 w-3 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/50" />
-                            <span className="text-xs text-green-400 font-medium">Healthy</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="group relative">
-                      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <div className="relative flex items-center justify-between p-4 bg-slate-800/50 rounded-lg border border-purple-500/20 hover:border-purple-400/40 transition-all">
-                        <div className="flex items-center space-x-4">
-                          <div className="p-3 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl shadow-lg shadow-purple-500/25">
-                            <Network className="h-5 w-5 text-white" />
-                          </div>
-                          <div>
-                            <div className="text-sm font-semibold text-white">Network</div>
-                            <div className="text-xs text-slate-400">Global CDN</div>
-                          </div>
-                        </div>
-                        <div className="flex items-center space-x-3">
-                          <div className="text-right">
-                            <div className="text-xs text-slate-400">Load</div>
-                            <div className="text-sm font-medium text-white">89%</div>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <div className="h-3 w-3 rounded-full bg-yellow-500 animate-pulse shadow-lg shadow-yellow-500/50" />
-                            <span className="text-xs text-yellow-400 font-medium">Warning</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <div className="text-2xl font-bold text-white mb-1">99.97%</div>
+                  <div className="text-xs text-slate-300 font-medium">System Uptime</div>
                 </div>
               </div>
 
-              {/* Services and Activity */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
-                {/* Service Health */}
-                <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-lg font-semibold text-white">Service Health</h3>
-                    <button className="text-sm text-blue-400 hover:text-blue-300 font-medium">View All →</button>
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-purple-600/10 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+                <div className="relative bg-slate-900/50 backdrop-blur-xl border border-purple-500/20 rounded-xl p-4 hover:border-purple-400/40 transition-all duration-300">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="p-2 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg shadow-lg shadow-purple-500/25">
+                      <Zap className="h-4 w-4 text-white" />
+                    </div>
+                    <div className="flex items-center text-red-400 font-bold text-xs">
+                      <ArrowDownRight className="h-3 w-3 mr-1" />
+                      3.1%
+                    </div>
                   </div>
-                  
-                  <div className="space-y-3">
-                    {mockServices.map((service) => (
-                      <div key={service.name} className="group relative">
-                        <div className="absolute inset-0 bg-gradient-to-r from-slate-700/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-                        <div className="relative flex items-center justify-between p-4 bg-slate-800/50 rounded-lg hover:bg-slate-800/70 transition-all">
-                          <div className="flex items-center space-x-4">
-                            <div className={`h-3 w-3 rounded-full ${
-                              service.status === 'healthy' ? 'bg-green-500 animate-pulse shadow-lg shadow-green-500/50' : 
-                              service.status === 'warning' ? 'bg-yellow-500 animate-pulse shadow-lg shadow-yellow-500/50' : 'bg-red-500 animate-pulse shadow-lg shadow-red-500/50'
-                            }`} />
-                            <div>
-                              <div className="text-sm font-semibold text-white">{service.name}</div>
-                              <div className="text-xs text-slate-400">Service Status</div>
-                            </div>
-                          </div>
-                          <div className="flex items-center space-x-6">
-                            <div className="text-right">
-                              <div className="text-xs text-slate-400">CPU</div>
-                              <div className="text-sm font-medium text-white">{service.cpu}%</div>
-                            </div>
-                            <div className="text-right">
-                              <div className="text-xs text-slate-400">Memory</div>
-                              <div className="text-sm font-medium text-white">{service.memory}%</div>
-                            </div>
-                            <div className="text-right">
-                              <div className="text-xs text-slate-400">Uptime</div>
-                              <div className="text-sm font-medium text-white">{service.uptime}%</div>
-                            </div>
-                          </div>
-                        </div>
+                  <div className="text-2xl font-bold text-white mb-1">1.2M</div>
+                  <div className="text-xs text-slate-300 font-medium">Requests/min</div>
+                </div>
+              </div>
+
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-orange-600/10 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+                <div className="relative bg-slate-900/50 backdrop-blur-xl border border-orange-500/20 rounded-xl p-4 hover:border-orange-400/40 transition-all duration-300">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="p-2 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg shadow-lg shadow-orange-500/25">
+                      <AlertTriangle className="h-4 w-4 text-white" />
+                    </div>
+                    <div className="flex items-center text-red-400 font-bold text-xs">
+                      <ArrowUpRight className="h-3 w-3 mr-1" />
+                      2
+                    </div>
+                  </div>
+                  <div className="text-2xl font-bold text-white mb-1">8</div>
+                  <div className="text-xs text-slate-300 font-medium">Active Alerts</div>
+                </div>
+              </div>
+
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-cyan-600/10 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+                <div className="relative bg-slate-900/50 backdrop-blur-xl border border-cyan-500/20 rounded-xl p-4 hover:border-cyan-400/40 transition-all duration-300">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="p-2 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-lg shadow-lg shadow-cyan-500/25">
+                      <Database className="h-4 w-4 text-white" />
+                    </div>
+                    <div className="flex items-center text-green-400 font-bold text-xs">
+                      <ArrowUpRight className="h-3 w-3 mr-1" />
+                      5.4%
+                    </div>
+                  </div>
+                  <div className="text-2xl font-bold text-white mb-1">16</div>
+                  <div className="text-xs text-slate-300 font-medium">Databases</div>
+                </div>
+              </div>
+
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-pink-600/10 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+                <div className="relative bg-slate-900/50 backdrop-blur-xl border border-pink-500/20 rounded-xl p-4 hover:border-pink-400/40 transition-all duration-300">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="p-2 bg-gradient-to-br from-pink-500 to-pink-600 rounded-lg shadow-lg shadow-pink-500/25">
+                      <Users className="h-4 w-4 text-white" />
+                    </div>
+                    <div className="flex items-center text-green-400 font-bold text-xs">
+                      <ArrowUpRight className="h-3 w-3 mr-1" />
+                      18.7%
+                    </div>
+                  </div>
+                  <div className="text-2xl font-bold text-white mb-1">45K</div>
+                  <div className="text-xs text-slate-300 font-medium">Active Users</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Main Horizontal Content */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {/* Large Performance Chart - Takes 2 columns */}
+              <div className="lg:col-span-2 xl:col-span-3 bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-lg font-semibold text-white">Performance Overview</h3>
+                  <div className="flex items-center space-x-2">
+                    <button className="px-3 py-1 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/50 rounded transition-colors">1D</button>
+                    <button className="px-3 py-1 text-xs font-medium text-white bg-blue-600/20 rounded border border-blue-500/30">1W</button>
+                    <button className="px-3 py-1 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/50 rounded transition-colors">1M</button>
+                  </div>
+                </div>
+                
+                <div className="h-80 bg-slate-800/30 rounded-lg p-4 mb-6">
+                  <div className="h-full flex items-end justify-between">
+                    {[30, 45, 35, 50, 40, 60, 45, 55, 40, 65, 50, 70, 35, 48, 52, 58, 42, 55, 38, 62].map((height, index) => (
+                      <div key={index} className="flex-1 mx-0.5">
+                        <div 
+                          className="w-full bg-gradient-to-t from-blue-600 to-blue-400 rounded-t"
+                          style={{ height: `${height}%` }}
+                        />
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Recent Activity */}
+                <div className="grid grid-cols-4 gap-4">
+                  <div className="bg-slate-800/50 rounded-lg p-3">
+                    <div className="text-xs text-slate-400 mb-1">Avg Response</div>
+                    <div className="text-lg font-semibold text-white">145ms</div>
+                    <div className="text-xs text-green-400">↓ 15%</div>
+                  </div>
+                  <div className="bg-slate-800/50 rounded-lg p-3">
+                    <div className="text-xs text-slate-400 mb-1">Error Rate</div>
+                    <div className="text-lg font-semibold text-white">0.12%</div>
+                    <div className="text-xs text-red-400">↑ 0.3%</div>
+                  </div>
+                  <div className="bg-slate-800/50 rounded-lg p-3">
+                    <div className="text-xs text-slate-400 mb-1">Throughput</div>
+                    <div className="text-lg font-semibold text-white">12.5K/s</div>
+                    <div className="text-xs text-green-400">↑ 8%</div>
+                  </div>
+                  <div className="bg-slate-800/50 rounded-lg p-3">
+                    <div className="text-xs text-slate-400 mb-1">Peak Load</div>
+                    <div className="text-lg font-semibold text-white">24.8K/s</div>
+                    <div className="text-xs text-green-400">↑ 12%</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Side Panel */}
+              <div className="space-y-6">
+                {/* Infrastructure Status */}
                 <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-lg font-semibold text-white">Recent Activity</h3>
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-semibold text-white">Infrastructure</h3>
                     <button className="text-sm text-blue-400 hover:text-blue-300 font-medium">View All →</button>
                   </div>
                   
-                  <div className="space-y-4">
-                    <div className="group relative">
-                      <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <div className="relative flex items-start space-x-4 p-4 bg-slate-800/50 rounded-lg hover:bg-slate-800/70 transition-all">
-                        <div className="p-3 bg-gradient-to-br from-green-500 to-green-600 rounded-xl shadow-lg shadow-green-500/25">
-                          <CheckCircle className="h-5 w-5 text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="text-sm font-semibold text-white">Deployment successful</div>
-                          <div className="text-xs text-slate-400">API Gateway v2.3.1 deployed to production</div>
-                          <div className="flex items-center space-x-4 mt-2">
-                            <span className="text-xs text-green-400 font-medium">Success</span>
-                            <span className="text-xs text-slate-500">2 minutes ago</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="group relative">
-                      <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <div className="relative flex items-start space-x-4 p-4 bg-slate-800/50 rounded-lg hover:bg-slate-800/70 transition-all">
-                        <div className="p-3 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-xl shadow-lg shadow-yellow-500/25">
-                          <AlertTriangle className="h-5 w-5 text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="text-sm font-semibold text-white">High memory usage detected</div>
-                          <div className="text-xs text-slate-400">Payment Service using 85% memory capacity</div>
-                          <div className="flex items-center space-x-4 mt-2">
-                            <span className="text-xs text-yellow-400 font-medium">Warning</span>
-                            <span className="text-xs text-slate-500">15 minutes ago</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
+                  <div className="space-y-3">
                     <div className="group relative">
                       <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <div className="relative flex items-start space-x-4 p-4 bg-slate-800/50 rounded-lg hover:bg-slate-800/70 transition-all">
-                        <div className="p-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg shadow-blue-500/25">
-                          <RefreshCw className="h-5 w-5 text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="text-sm font-semibold text-white">Auto-scaling triggered</div>
-                          <div className="text-xs text-slate-400">Added 2 instances to checkout service cluster</div>
-                          <div className="flex items-center space-x-4 mt-2">
-                            <span className="text-xs text-blue-400 font-medium">Info</span>
-                            <span className="text-xs text-slate-500">1 hour ago</span>
+                      <div className="relative flex items-center justify-between p-3 bg-slate-800/50 rounded-lg border border-blue-500/20 hover:border-blue-400/40 transition-all">
+                        <div className="flex items-center space-x-3">
+                          <div className="p-2 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg shadow-lg shadow-blue-500/25">
+                            <Cloud className="h-4 w-4 text-white" />
+                          </div>
+                          <div>
+                            <div className="text-sm font-semibold text-white">Cloud</div>
+                            <div className="text-xs text-slate-400">67% load</div>
                           </div>
                         </div>
+                        <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+                      </div>
+                    </div>
+
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="relative flex items-center justify-between p-3 bg-slate-800/50 rounded-lg border border-green-500/20 hover:border-green-400/40 transition-all">
+                        <div className="flex items-center space-x-3">
+                          <div className="p-2 bg-gradient-to-br from-green-500 to-green-600 rounded-lg shadow-lg shadow-green-500/25">
+                            <Database className="h-4 w-4 text-white" />
+                          </div>
+                          <div>
+                            <div className="text-sm font-semibold text-white">Database</div>
+                            <div className="text-xs text-slate-400">42% load</div>
+                          </div>
+                        </div>
+                        <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+                      </div>
+                    </div>
+
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="relative flex items-center justify-between p-3 bg-slate-800/50 rounded-lg border border-purple-500/20 hover:border-purple-400/40 transition-all">
+                        <div className="flex items-center space-x-3">
+                          <div className="p-2 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg shadow-lg shadow-purple-500/25">
+                            <Network className="h-4 w-4 text-white" />
+                          </div>
+                          <div>
+                            <div className="text-sm font-semibold text-white">Network</div>
+                            <div className="text-xs text-slate-400">89% load</div>
+                          </div>
+                        </div>
+                        <div className="h-2 w-2 rounded-full bg-yellow-500 animate-pulse" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Quick Stats */}
+                <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
+                  <h3 className="text-lg font-semibold text-white mb-4">Quick Stats</h3>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-slate-400">CPU Usage</span>
+                      <span className="text-sm font-medium text-white">68%</span>
+                    </div>
+                    <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+                      <div className="h-full w-2/3 bg-gradient-to-r from-blue-500 to-blue-400 rounded-full" />
+                    </div>
+                    
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-slate-400">Memory</span>
+                      <span className="text-sm font-medium text-white">54%</span>
+                    </div>
+                    <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+                      <div className="h-full w-1/2 bg-gradient-to-r from-green-500 to-green-400 rounded-full" />
+                    </div>
+                    
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-slate-400">Storage</span>
+                      <span className="text-sm font-medium text-white">82%</span>
+                    </div>
+                    <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+                      <div className="h-full w-4/5 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Section - Full Width */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 mt-6">
+              {/* Service Health - Takes more space */}
+              <div className="xl:col-span-2 bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-lg font-semibold text-white">Service Health</h3>
+                  <button className="text-sm text-blue-400 hover:text-blue-300 font-medium">View All →</button>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {mockServices.map((service) => (
+                    <div key={service.name} className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-slate-700/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="relative flex items-center justify-between p-4 bg-slate-800/50 rounded-lg hover:bg-slate-800/70 transition-all">
+                        <div className="flex items-center space-x-3">
+                          <div className={`h-3 w-3 rounded-full ${
+                            service.status === 'healthy' ? 'bg-green-500 animate-pulse shadow-lg shadow-green-500/50' : 
+                            service.status === 'warning' ? 'bg-yellow-500 animate-pulse shadow-lg shadow-yellow-500/50' : 'bg-red-500 animate-pulse shadow-lg shadow-red-500/50'
+                          }`} />
+                          <div>
+                            <div className="text-sm font-semibold text-white">{service.name}</div>
+                            <div className="text-xs text-slate-400">Service Status</div>
+                          </div>
+                        </div>
+                        <div className="flex items-center space-x-4 text-xs">
+                          <div className="text-right">
+                            <div className="text-slate-400">CPU</div>
+                            <div className="font-medium text-white">{service.cpu}%</div>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-slate-400">Mem</div>
+                            <div className="font-medium text-white">{service.memory}%</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Recent Activity */}
+              <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-lg font-semibold text-white">Recent Activity</h3>
+                  <button className="text-sm text-blue-400 hover:text-blue-300 font-medium">View All →</button>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="group relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="relative flex items-start space-x-3 p-3 bg-slate-800/50 rounded-lg hover:bg-slate-800/70 transition-all">
+                      <div className="p-2 bg-gradient-to-br from-green-500 to-green-600 rounded-lg shadow-lg shadow-green-500/25">
+                        <CheckCircle className="h-4 w-4 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-sm font-semibold text-white">Deployment</div>
+                        <div className="text-xs text-slate-400">API Gateway v2.3.1</div>
+                        <div className="text-xs text-green-400 mt-1">2 min ago</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="group relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="relative flex items-start space-x-3 p-3 bg-slate-800/50 rounded-lg hover:bg-slate-800/70 transition-all">
+                      <div className="p-2 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-lg shadow-lg shadow-yellow-500/25">
+                        <AlertTriangle className="h-4 w-4 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-sm font-semibold text-white">Memory Alert</div>
+                        <div className="text-xs text-slate-400">Payment Service 85%</div>
+                        <div className="text-xs text-yellow-400 mt-1">15 min ago</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="group relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="relative flex items-start space-x-3 p-3 bg-slate-800/50 rounded-lg hover:bg-slate-800/70 transition-all">
+                      <div className="p-2 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg shadow-lg shadow-blue-500/25">
+                        <RefreshCw className="h-4 w-4 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-sm font-semibold text-white">Auto-scaling</div>
+                        <div className="text-xs text-slate-400">+2 instances</div>
+                        <div className="text-xs text-blue-400 mt-1">1 hour ago</div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </main>
-        </div>
+          </div>
+        </main>
       </div>
     </div>
   )
