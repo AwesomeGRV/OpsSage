@@ -310,48 +310,100 @@ export default function Dashboard() {
             <div className="p-8">
               {/* Metrics Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="p-2 bg-blue-500/10 rounded-lg">
-                      <Server className="h-5 w-5 text-blue-400" />
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-blue-600/10 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+                  <div className="relative bg-slate-900/50 backdrop-blur-xl border border-blue-500/20 rounded-xl p-6 hover:border-blue-400/40 transition-all duration-300">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="p-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg shadow-blue-500/25">
+                        <Server className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex items-center text-green-400 font-bold text-sm">
+                        <ArrowUpRight className="h-4 w-4 mr-1" />
+                        12.5%
+                      </div>
                     </div>
-                    <span className="text-xs text-green-400 font-medium">+12.5%</span>
+                    <div className="text-4xl font-bold text-white mb-2">247</div>
+                    <div className="text-sm text-slate-300 font-medium">Active Servers</div>
+                    <div className="mt-4 h-12">
+                      <div className="flex items-end justify-between h-full">
+                        {[40, 65, 45, 80, 60, 90, 75, 85].map((height, index) => (
+                          <div key={index} className="w-2 bg-gradient-to-t from-blue-600 to-blue-400 rounded-t" style={{ height: `${height}%` }} />
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-3xl font-bold text-white mb-1">247</div>
-                  <div className="text-sm text-slate-400">Active Servers</div>
                 </div>
 
-                <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="p-2 bg-green-500/10 rounded-lg">
-                      <Activity className="h-5 w-5 text-green-400" />
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-green-600/10 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+                  <div className="relative bg-slate-900/50 backdrop-blur-xl border border-green-500/20 rounded-xl p-6 hover:border-green-400/40 transition-all duration-300">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="p-3 bg-gradient-to-br from-green-500 to-green-600 rounded-xl shadow-lg shadow-green-500/25">
+                        <Activity className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex items-center text-green-400 font-bold text-sm">
+                        <ArrowUpRight className="h-4 w-4 mr-1" />
+                        8.2%
+                      </div>
                     </div>
-                    <span className="text-xs text-green-400 font-medium">+8.2%</span>
+                    <div className="text-4xl font-bold text-white mb-2">99.97%</div>
+                    <div className="text-sm text-slate-300 font-medium">System Uptime</div>
+                    <div className="mt-4 flex items-center space-x-1">
+                      <div className="h-2 flex-1 bg-green-500 rounded-full" />
+                      <div className="h-2 flex-1 bg-green-500 rounded-full" />
+                      <div className="h-2 flex-1 bg-green-500 rounded-full" />
+                      <div className="h-2 flex-1 bg-green-500 rounded-full" />
+                      <div className="h-2 w-1 bg-green-500 rounded-full" />
+                    </div>
                   </div>
-                  <div className="text-3xl font-bold text-white mb-1">99.97%</div>
-                  <div className="text-sm text-slate-400">Uptime</div>
                 </div>
 
-                <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="p-2 bg-purple-500/10 rounded-lg">
-                      <Zap className="h-5 w-5 text-purple-400" />
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-purple-600/10 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+                  <div className="relative bg-slate-900/50 backdrop-blur-xl border border-purple-500/20 rounded-xl p-6 hover:border-purple-400/40 transition-all duration-300">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="p-3 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl shadow-lg shadow-purple-500/25">
+                        <Zap className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex items-center text-red-400 font-bold text-sm">
+                        <ArrowDownRight className="h-4 w-4 mr-1" />
+                        3.1%
+                      </div>
                     </div>
-                    <span className="text-xs text-red-400 font-medium">-3.1%</span>
+                    <div className="text-4xl font-bold text-white mb-2">1.2M</div>
+                    <div className="text-sm text-slate-300 font-medium">Requests/min</div>
+                    <div className="mt-4 h-12">
+                      <div className="flex items-center justify-center h-full">
+                        <div className="relative">
+                          <div className="h-10 w-10 rounded-full border-4 border-purple-500/30" />
+                          <div className="absolute inset-0 h-10 w-10 rounded-full border-4 border-purple-500 border-t-transparent animate-spin" />
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-3xl font-bold text-white mb-1">1.2M</div>
-                  <div className="text-sm text-slate-400">Requests/min</div>
                 </div>
 
-                <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="p-2 bg-orange-500/10 rounded-lg">
-                      <AlertTriangle className="h-5 w-5 text-orange-400" />
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-orange-600/10 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+                  <div className="relative bg-slate-900/50 backdrop-blur-xl border border-orange-500/20 rounded-xl p-6 hover:border-orange-400/40 transition-all duration-300">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="p-3 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl shadow-lg shadow-orange-500/25">
+                        <AlertTriangle className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex items-center text-red-400 font-bold text-sm">
+                        <ArrowUpRight className="h-4 w-4 mr-1" />
+                        2
+                      </div>
                     </div>
-                    <span className="text-xs text-red-400 font-medium">+2</span>
+                    <div className="text-4xl font-bold text-white mb-2">8</div>
+                    <div className="text-sm text-slate-300 font-medium">Active Alerts</div>
+                    <div className="mt-4 flex items-center justify-center">
+                      <div className="relative">
+                        <div className="h-3 w-3 rounded-full bg-orange-500 animate-pulse" />
+                        <div className="absolute inset-0 h-3 w-3 rounded-full bg-orange-500 animate-ping" />
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-3xl font-bold text-white mb-1">8</div>
-                  <div className="text-sm text-slate-400">Active Alerts</div>
                 </div>
               </div>
 
@@ -368,11 +420,16 @@ export default function Dashboard() {
                     </div>
                   </div>
                   
-                  <div className="h-64 bg-slate-800/30 rounded-lg flex items-center justify-center mb-6">
-                    <div className="text-center">
-                      <LineChart className="h-12 w-12 text-slate-600 mx-auto mb-2" />
-                      <div className="text-slate-400 text-sm">Performance Chart</div>
-                      <div className="text-slate-500 text-xs">Real-time metrics visualization</div>
+                  <div className="h-64 bg-slate-800/30 rounded-lg p-4 mb-6">
+                    <div className="h-full flex items-end justify-between">
+                      {[30, 45, 35, 50, 40, 60, 45, 55, 40, 65, 50, 70].map((height, index) => (
+                        <div key={index} className="flex-1 mx-0.5">
+                          <div 
+                            className="w-full bg-gradient-to-t from-blue-600 to-blue-400 rounded-t"
+                            style={{ height: `${height}%` }}
+                          />
+                        </div>
+                      ))}
                     </div>
                   </div>
 
@@ -399,55 +456,82 @@ export default function Dashboard() {
                 <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
                   <div className="flex items-center justify-between mb-6">
                     <h3 className="text-lg font-semibold text-white">Infrastructure</h3>
-                    <button className="text-sm text-slate-400 hover:text-white">View All →</button>
+                    <button className="text-sm text-blue-400 hover:text-blue-300 font-medium">View All →</button>
                   </div>
                   
                   <div className="space-y-4">
-                    <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
-                      <div className="flex items-center space-x-3">
-                        <div className="p-2 bg-blue-500/10 rounded-lg">
-                          <Cloud className="h-4 w-4 text-blue-400" />
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="relative flex items-center justify-between p-4 bg-slate-800/50 rounded-lg border border-blue-500/20 hover:border-blue-400/40 transition-all">
+                        <div className="flex items-center space-x-4">
+                          <div className="p-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg shadow-blue-500/25">
+                            <Cloud className="h-5 w-5 text-white" />
+                          </div>
+                          <div>
+                            <div className="text-sm font-semibold text-white">Cloud Services</div>
+                            <div className="text-xs text-slate-400">AWS, GCP, Azure</div>
+                          </div>
                         </div>
-                        <div>
-                          <div className="text-sm font-medium text-white">Cloud Services</div>
-                          <div className="text-xs text-slate-400">AWS, GCP, Azure</div>
+                        <div className="flex items-center space-x-3">
+                          <div className="text-right">
+                            <div className="text-xs text-slate-400">Load</div>
+                            <div className="text-sm font-medium text-white">67%</div>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <div className="h-3 w-3 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/50" />
+                            <span className="text-xs text-green-400 font-medium">Healthy</span>
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <div className="h-2 w-2 rounded-full bg-green-500" />
-                        <span className="text-xs text-green-400">Healthy</span>
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
-                      <div className="flex items-center space-x-3">
-                        <div className="p-2 bg-green-500/10 rounded-lg">
-                          <Database className="h-4 w-4 text-green-400" />
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="relative flex items-center justify-between p-4 bg-slate-800/50 rounded-lg border border-green-500/20 hover:border-green-400/40 transition-all">
+                        <div className="flex items-center space-x-4">
+                          <div className="p-3 bg-gradient-to-br from-green-500 to-green-600 rounded-xl shadow-lg shadow-green-500/25">
+                            <Database className="h-5 w-5 text-white" />
+                          </div>
+                          <div>
+                            <div className="text-sm font-semibold text-white">Databases</div>
+                            <div className="text-xs text-slate-400">PostgreSQL, Redis</div>
+                          </div>
                         </div>
-                        <div>
-                          <div className="text-sm font-medium text-white">Databases</div>
-                          <div className="text-xs text-slate-400">PostgreSQL, Redis</div>
+                        <div className="flex items-center space-x-3">
+                          <div className="text-right">
+                            <div className="text-xs text-slate-400">Load</div>
+                            <div className="text-sm font-medium text-white">42%</div>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <div className="h-3 w-3 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/50" />
+                            <span className="text-xs text-green-400 font-medium">Healthy</span>
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <div className="h-2 w-2 rounded-full bg-green-500" />
-                        <span className="text-xs text-green-400">Healthy</span>
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
-                      <div className="flex items-center space-x-3">
-                        <div className="p-2 bg-purple-500/10 rounded-lg">
-                          <Network className="h-4 w-4 text-purple-400" />
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="relative flex items-center justify-between p-4 bg-slate-800/50 rounded-lg border border-purple-500/20 hover:border-purple-400/40 transition-all">
+                        <div className="flex items-center space-x-4">
+                          <div className="p-3 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl shadow-lg shadow-purple-500/25">
+                            <Network className="h-5 w-5 text-white" />
+                          </div>
+                          <div>
+                            <div className="text-sm font-semibold text-white">Network</div>
+                            <div className="text-xs text-slate-400">Global CDN</div>
+                          </div>
                         </div>
-                        <div>
-                          <div className="text-sm font-medium text-white">Network</div>
-                          <div className="text-xs text-slate-400">Global CDN</div>
+                        <div className="flex items-center space-x-3">
+                          <div className="text-right">
+                            <div className="text-xs text-slate-400">Load</div>
+                            <div className="text-sm font-medium text-white">89%</div>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <div className="h-3 w-3 rounded-full bg-yellow-500 animate-pulse shadow-lg shadow-yellow-500/50" />
+                            <span className="text-xs text-yellow-400 font-medium">Warning</span>
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <div className="h-2 w-2 rounded-full bg-yellow-500" />
-                        <span className="text-xs text-yellow-400">Warning</span>
                       </div>
                     </div>
                   </div>
@@ -460,23 +544,38 @@ export default function Dashboard() {
                 <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
                   <div className="flex items-center justify-between mb-6">
                     <h3 className="text-lg font-semibold text-white">Service Health</h3>
-                    <button className="text-sm text-slate-400 hover:text-white">View All →</button>
+                    <button className="text-sm text-blue-400 hover:text-blue-300 font-medium">View All →</button>
                   </div>
                   
                   <div className="space-y-3">
                     {mockServices.map((service) => (
-                      <div key={service.name} className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
-                        <div className="flex items-center space-x-3">
-                          <div className={`h-2 w-2 rounded-full ${
-                            service.status === 'healthy' ? 'bg-green-500' : 
-                            service.status === 'warning' ? 'bg-yellow-500' : 'bg-red-500'
-                          }`} />
-                          <span className="text-sm font-medium text-white">{service.name}</span>
-                        </div>
-                        <div className="flex items-center space-x-4 text-xs text-slate-400">
-                          <span>CPU: {service.cpu}%</span>
-                          <span>Mem: {service.memory}%</span>
-                          <span>{service.uptime}%</span>
+                      <div key={service.name} className="group relative">
+                        <div className="absolute inset-0 bg-gradient-to-r from-slate-700/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="relative flex items-center justify-between p-4 bg-slate-800/50 rounded-lg hover:bg-slate-800/70 transition-all">
+                          <div className="flex items-center space-x-4">
+                            <div className={`h-3 w-3 rounded-full ${
+                              service.status === 'healthy' ? 'bg-green-500 animate-pulse shadow-lg shadow-green-500/50' : 
+                              service.status === 'warning' ? 'bg-yellow-500 animate-pulse shadow-lg shadow-yellow-500/50' : 'bg-red-500 animate-pulse shadow-lg shadow-red-500/50'
+                            }`} />
+                            <div>
+                              <div className="text-sm font-semibold text-white">{service.name}</div>
+                              <div className="text-xs text-slate-400">Service Status</div>
+                            </div>
+                          </div>
+                          <div className="flex items-center space-x-6">
+                            <div className="text-right">
+                              <div className="text-xs text-slate-400">CPU</div>
+                              <div className="text-sm font-medium text-white">{service.cpu}%</div>
+                            </div>
+                            <div className="text-right">
+                              <div className="text-xs text-slate-400">Memory</div>
+                              <div className="text-sm font-medium text-white">{service.memory}%</div>
+                            </div>
+                            <div className="text-right">
+                              <div className="text-xs text-slate-400">Uptime</div>
+                              <div className="text-sm font-medium text-white">{service.uptime}%</div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     ))}
@@ -487,40 +586,58 @@ export default function Dashboard() {
                 <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
                   <div className="flex items-center justify-between mb-6">
                     <h3 className="text-lg font-semibold text-white">Recent Activity</h3>
-                    <button className="text-sm text-slate-400 hover:text-white">View All →</button>
+                    <button className="text-sm text-blue-400 hover:text-blue-300 font-medium">View All →</button>
                   </div>
                   
                   <div className="space-y-4">
-                    <div className="flex items-start space-x-3">
-                      <div className="p-2 bg-green-500/10 rounded-lg">
-                        <CheckCircle className="h-4 w-4 text-green-400" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="text-sm font-medium text-white">Deployment successful</div>
-                        <div className="text-xs text-slate-400">API Gateway v2.3.1 deployed</div>
-                        <div className="text-xs text-slate-500 mt-1">2 minutes ago</div>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start space-x-3">
-                      <div className="p-2 bg-yellow-500/10 rounded-lg">
-                        <AlertTriangle className="h-4 w-4 text-yellow-400" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="text-sm font-medium text-white">High memory usage</div>
-                        <div className="text-xs text-slate-400">Payment Service using 85% memory</div>
-                        <div className="text-xs text-slate-500 mt-1">15 minutes ago</div>
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="relative flex items-start space-x-4 p-4 bg-slate-800/50 rounded-lg hover:bg-slate-800/70 transition-all">
+                        <div className="p-3 bg-gradient-to-br from-green-500 to-green-600 rounded-xl shadow-lg shadow-green-500/25">
+                          <CheckCircle className="h-5 w-5 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-sm font-semibold text-white">Deployment successful</div>
+                          <div className="text-xs text-slate-400">API Gateway v2.3.1 deployed to production</div>
+                          <div className="flex items-center space-x-4 mt-2">
+                            <span className="text-xs text-green-400 font-medium">Success</span>
+                            <span className="text-xs text-slate-500">2 minutes ago</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     
-                    <div className="flex items-start space-x-3">
-                      <div className="p-2 bg-blue-500/10 rounded-lg">
-                        <RefreshCw className="h-4 w-4 text-blue-400" />
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="relative flex items-start space-x-4 p-4 bg-slate-800/50 rounded-lg hover:bg-slate-800/70 transition-all">
+                        <div className="p-3 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-xl shadow-lg shadow-yellow-500/25">
+                          <AlertTriangle className="h-5 w-5 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-sm font-semibold text-white">High memory usage detected</div>
+                          <div className="text-xs text-slate-400">Payment Service using 85% memory capacity</div>
+                          <div className="flex items-center space-x-4 mt-2">
+                            <span className="text-xs text-yellow-400 font-medium">Warning</span>
+                            <span className="text-xs text-slate-500">15 minutes ago</span>
+                          </div>
+                        </div>
                       </div>
-                      <div className="flex-1">
-                        <div className="text-sm font-medium text-white">Auto-scaling triggered</div>
-                        <div className="text-xs text-slate-400">Added 2 instances to checkout service</div>
-                        <div className="text-xs text-slate-500 mt-1">1 hour ago</div>
+                    </div>
+                    
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="relative flex items-start space-x-4 p-4 bg-slate-800/50 rounded-lg hover:bg-slate-800/70 transition-all">
+                        <div className="p-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg shadow-blue-500/25">
+                          <RefreshCw className="h-5 w-5 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-sm font-semibold text-white">Auto-scaling triggered</div>
+                          <div className="text-xs text-slate-400">Added 2 instances to checkout service cluster</div>
+                          <div className="flex items-center space-x-4 mt-2">
+                            <span className="text-xs text-blue-400 font-medium">Info</span>
+                            <span className="text-xs text-slate-500">1 hour ago</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
