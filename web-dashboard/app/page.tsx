@@ -224,313 +224,311 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Background Effects */}
-      <div className="fixed inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900">
-        <div className="absolute inset-0 bg-grid opacity-5" />
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
+    <div className="min-h-screen bg-slate-950">
+      {/* Modern Background */}
+      <div className="fixed inset-0 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,theme(colors.blue.500/0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,theme(colors.purple.500/0.1),transparent_50%)]" />
       </div>
 
       <div className="relative z-10">
-        {/* Header */}
-        <header className="border-b border-gray-800 bg-black/50 backdrop-blur-xl">
-          <div className="px-6 py-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-8">
-                <div className="flex items-center space-x-3">
-                  <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-                    <Shield className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h1 className="text-xl font-bold text-white">OpsSage</h1>
-                    <p className="text-xs text-gray-400">Enterprise Operations Platform</p>
-                  </div>
+        {/* Modern Sidebar Layout */}
+        <div className="flex h-screen">
+          {/* Sidebar */}
+          <aside className="w-64 bg-slate-900/50 backdrop-blur-xl border-r border-slate-800/50">
+            <div className="p-6">
+              <div className="flex items-center space-x-3">
+                <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                  <Shield className="h-6 w-6 text-white" />
                 </div>
-                
-                <nav className="hidden md:flex items-center space-x-6">
-                  <button className="px-3 py-2 text-sm font-medium text-white bg-blue-600/20 rounded-lg border border-blue-500/30">Dashboard</button>
-                  <button className="px-3 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">Infrastructure</button>
-                  <button className="px-3 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">Monitoring</button>
-                  <button className="px-3 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">Security</button>
-                  <button className="px-3 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">Analytics</button>
-                </nav>
+                <div>
+                  <h1 className="text-xl font-bold text-white">OpsSage</h1>
+                  <p className="text-xs text-slate-400">Enterprise Platform</p>
+                </div>
               </div>
-              
-              <div className="flex items-center space-x-4">
-                <div className="flex items-center space-x-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
+            </div>
+
+            <nav className="px-4 pb-6">
+              <div className="space-y-1">
+                <button className="w-full px-4 py-2.5 text-sm font-medium text-white bg-blue-600/20 rounded-lg border border-blue-500/30">
+                  Dashboard
+                </button>
+                <button className="w-full px-4 py-2.5 text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">
+                  Infrastructure
+                </button>
+                <button className="w-full px-4 py-2.5 text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">
+                  Monitoring
+                </button>
+                <button className="w-full px-4 py-2.5 text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">
+                  Security
+                </button>
+                <button className="w-full px-4 py-2.5 text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">
+                  Analytics
+                </button>
+              </div>
+            </nav>
+
+            <div className="px-4 pb-6 mt-auto">
+              <div className="bg-slate-800/50 rounded-lg p-4">
+                <div className="flex items-center space-x-3 mb-3">
                   <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-xs text-green-400 font-medium">Operational</span>
+                  <span className="text-sm text-slate-300">System Status</span>
                 </div>
-                <button className="p-2 rounded-lg hover:bg-gray-800 transition-colors">
-                  <Search className="h-4 w-4 text-gray-400" />
-                </button>
-                <button className="p-2 rounded-lg hover:bg-gray-800 transition-colors relative">
-                  <Bell className="h-4 w-4 text-gray-400" />
-                  <div className="absolute top-1 right-1 h-2 w-2 rounded-full bg-red-500" />
-                </button>
-                <button className="p-2 rounded-lg hover:bg-gray-800 transition-colors">
-                  <Settings className="h-4 w-4 text-gray-400" />
-                </button>
-                <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-                  <User className="h-4 w-4 text-white" />
-                </div>
+                <div className="text-lg font-semibold text-white">Operational</div>
+                <div className="text-xs text-slate-400">All services running</div>
               </div>
             </div>
-          </div>
-        </header>
+          </aside>
 
-        {/* Main Content */}
-        <main className="p-6">
-          {/* Page Header */}
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <h2 className="text-3xl font-bold text-white mb-2">Infrastructure Overview</h2>
-              <p className="text-gray-400">Real-time monitoring and system performance</p>
-            </div>
-            <div className="flex items-center space-x-3">
-              <button className="px-4 py-2 bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 transition-colors flex items-center space-x-2">
-                <Calendar className="h-4 w-4" />
-                <span className="text-sm">Last 24h</span>
-              </button>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2">
-                <RefreshCw className="h-4 w-4" />
-                <span className="text-sm">Refresh</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div className="p-2 bg-blue-600/20 rounded-lg">
-                  <Server className="h-5 w-5 text-blue-400" />
-                </div>
-                <span className="text-xs text-green-400 font-medium">+12.5%</span>
-              </div>
-              <div className="text-2xl font-bold text-white mb-1">247</div>
-              <div className="text-sm text-gray-400">Active Servers</div>
-            </div>
-
-            <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div className="p-2 bg-green-600/20 rounded-lg">
-                  <Activity className="h-5 w-5 text-green-400" />
-                </div>
-                <span className="text-xs text-green-400 font-medium">+8.2%</span>
-              </div>
-              <div className="text-2xl font-bold text-white mb-1">99.97%</div>
-              <div className="text-sm text-gray-400">Uptime</div>
-            </div>
-
-            <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div className="p-2 bg-purple-600/20 rounded-lg">
-                  <Zap className="h-5 w-5 text-purple-400" />
-                </div>
-                <span className="text-xs text-red-400 font-medium">-3.1%</span>
-              </div>
-              <div className="text-2xl font-bold text-white mb-1">1.2M</div>
-              <div className="text-sm text-gray-400">Requests/min</div>
-            </div>
-
-            <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div className="p-2 bg-orange-600/20 rounded-lg">
-                  <AlertTriangle className="h-5 w-5 text-orange-400" />
-                </div>
-                <span className="text-xs text-red-400 font-medium">+2</span>
-              </div>
-              <div className="text-2xl font-bold text-white mb-1">8</div>
-              <div className="text-sm text-gray-400">Active Alerts</div>
-            </div>
-          </div>
-
-          {/* Main Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Infrastructure Map */}
-            <div className="lg:col-span-2 bg-gray-900/50 border border-gray-800 rounded-xl p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold text-white">Infrastructure Map</h3>
-                <button className="text-sm text-gray-400 hover:text-white">View Details →</button>
-              </div>
-              
-              <div className="bg-gray-800/50 rounded-lg p-8 mb-6">
-                <div className="grid grid-cols-3 gap-8">
-                  <div className="text-center">
-                    <div className="h-16 w-16 mx-auto mb-3 bg-blue-600/20 rounded-xl flex items-center justify-center">
-                      <Cloud className="h-8 w-8 text-blue-400" />
-                    </div>
-                    <div className="text-sm font-medium text-white">Cloud Infrastructure</div>
-                    <div className="text-xs text-gray-400">AWS, GCP, Azure</div>
+          {/* Main Content */}
+          <main className="flex-1 overflow-auto">
+            {/* Top Header */}
+            <header className="bg-slate-900/30 backdrop-blur-xl border-b border-slate-800/50">
+              <div className="px-8 py-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h2 className="text-2xl font-bold text-white">Dashboard Overview</h2>
+                    <p className="text-sm text-slate-400">Real-time system monitoring and insights</p>
                   </div>
-                  <div className="text-center">
-                    <div className="h-16 w-16 mx-auto mb-3 bg-green-600/20 rounded-xl flex items-center justify-center">
-                      <Network className="h-8 w-8 text-green-400" />
+                  <div className="flex items-center space-x-4">
+                    <button className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors flex items-center space-x-2">
+                      <Calendar className="h-4 w-4" />
+                      <span>Last 24h</span>
+                    </button>
+                    <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors flex items-center space-x-2">
+                      <RefreshCw className="h-4 w-4" />
+                      <span>Refresh</span>
+                    </button>
+                    <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                      <User className="h-4 w-4 text-white" />
                     </div>
-                    <div className="text-sm font-medium text-white">Network</div>
-                    <div className="text-xs text-gray-400">Global CDN</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="h-16 w-16 mx-auto mb-3 bg-purple-600/20 rounded-xl flex items-center justify-center">
-                      <Database className="h-8 w-8 text-purple-400" />
-                    </div>
-                    <div className="text-sm font-medium text-white">Databases</div>
-                    <div className="text-xs text-gray-400">PostgreSQL, Redis</div>
                   </div>
                 </div>
               </div>
+            </header>
 
-              {/* Service Health */}
-              <div>
-                <h4 className="text-sm font-medium text-white mb-4">Service Health</h4>
-                <div className="space-y-3">
-                  {mockServices.map((service) => (
-                    <div key={service.name} className="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg">
+            <div className="p-8">
+              {/* Metrics Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-2 bg-blue-500/10 rounded-lg">
+                      <Server className="h-5 w-5 text-blue-400" />
+                    </div>
+                    <span className="text-xs text-green-400 font-medium">+12.5%</span>
+                  </div>
+                  <div className="text-3xl font-bold text-white mb-1">247</div>
+                  <div className="text-sm text-slate-400">Active Servers</div>
+                </div>
+
+                <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-2 bg-green-500/10 rounded-lg">
+                      <Activity className="h-5 w-5 text-green-400" />
+                    </div>
+                    <span className="text-xs text-green-400 font-medium">+8.2%</span>
+                  </div>
+                  <div className="text-3xl font-bold text-white mb-1">99.97%</div>
+                  <div className="text-sm text-slate-400">Uptime</div>
+                </div>
+
+                <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-2 bg-purple-500/10 rounded-lg">
+                      <Zap className="h-5 w-5 text-purple-400" />
+                    </div>
+                    <span className="text-xs text-red-400 font-medium">-3.1%</span>
+                  </div>
+                  <div className="text-3xl font-bold text-white mb-1">1.2M</div>
+                  <div className="text-sm text-slate-400">Requests/min</div>
+                </div>
+
+                <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-2 bg-orange-500/10 rounded-lg">
+                      <AlertTriangle className="h-5 w-5 text-orange-400" />
+                    </div>
+                    <span className="text-xs text-red-400 font-medium">+2</span>
+                  </div>
+                  <div className="text-3xl font-bold text-white mb-1">8</div>
+                  <div className="text-sm text-slate-400">Active Alerts</div>
+                </div>
+              </div>
+
+              {/* Main Content Grid */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {/* Performance Chart */}
+                <div className="lg:col-span-2 bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
+                  <div className="flex items-center justify-between mb-6">
+                    <h3 className="text-lg font-semibold text-white">Performance Overview</h3>
+                    <div className="flex items-center space-x-2">
+                      <button className="px-3 py-1 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/50 rounded transition-colors">1D</button>
+                      <button className="px-3 py-1 text-xs font-medium text-white bg-blue-600/20 rounded border border-blue-500/30">1W</button>
+                      <button className="px-3 py-1 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/50 rounded transition-colors">1M</button>
+                    </div>
+                  </div>
+                  
+                  <div className="h-64 bg-slate-800/30 rounded-lg flex items-center justify-center mb-6">
+                    <div className="text-center">
+                      <LineChart className="h-12 w-12 text-slate-600 mx-auto mb-2" />
+                      <div className="text-slate-400 text-sm">Performance Chart</div>
+                      <div className="text-slate-500 text-xs">Real-time metrics visualization</div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="bg-slate-800/50 rounded-lg p-4">
+                      <div className="text-sm text-slate-400 mb-1">Avg Response</div>
+                      <div className="text-lg font-semibold text-white">145ms</div>
+                      <div className="text-xs text-green-400">↓ 15%</div>
+                    </div>
+                    <div className="bg-slate-800/50 rounded-lg p-4">
+                      <div className="text-sm text-slate-400 mb-1">Error Rate</div>
+                      <div className="text-lg font-semibold text-white">0.12%</div>
+                      <div className="text-xs text-red-400">↑ 0.3%</div>
+                    </div>
+                    <div className="bg-slate-800/50 rounded-lg p-4">
+                      <div className="text-sm text-slate-400 mb-1">Throughput</div>
+                      <div className="text-lg font-semibold text-white">12.5K/s</div>
+                      <div className="text-xs text-green-400">↑ 8%</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Infrastructure Status */}
+                <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
+                  <div className="flex items-center justify-between mb-6">
+                    <h3 className="text-lg font-semibold text-white">Infrastructure</h3>
+                    <button className="text-sm text-slate-400 hover:text-white">View All →</button>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
                       <div className="flex items-center space-x-3">
-                        <div className={`h-2 w-2 rounded-full ${
-                          service.status === 'healthy' ? 'bg-green-500' : 
-                          service.status === 'warning' ? 'bg-yellow-500' : 'bg-red-500'
-                        }`} />
-                        <span className="text-sm text-white">{service.name}</span>
+                        <div className="p-2 bg-blue-500/10 rounded-lg">
+                          <Cloud className="h-4 w-4 text-blue-400" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-medium text-white">Cloud Services</div>
+                          <div className="text-xs text-slate-400">AWS, GCP, Azure</div>
+                        </div>
                       </div>
-                      <div className="flex items-center space-x-4 text-xs">
-                        <span className="text-gray-400">CPU: {service.cpu}%</span>
-                        <span className="text-gray-400">Mem: {service.memory}%</span>
-                        <span className="text-gray-400">{service.uptime}% uptime</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Activity Feed */}
-            <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold text-white">Activity Feed</h3>
-                <button className="text-sm text-gray-400 hover:text-white">View All →</button>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="p-2 bg-green-600/20 rounded-lg">
-                    <CheckCircle className="h-4 w-4 text-green-400" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-sm text-white">Deployment successful</div>
-                    <div className="text-xs text-gray-400">api-gateway v2.3.1 deployed</div>
-                    <div className="text-xs text-gray-500 mt-1">2 minutes ago</div>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-3">
-                  <div className="p-2 bg-yellow-600/20 rounded-lg">
-                    <AlertTriangle className="h-4 w-4 text-yellow-400" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-sm text-white">High memory usage</div>
-                    <div className="text-xs text-gray-400">payment-service using 85% memory</div>
-                    <div className="text-xs text-gray-500 mt-1">15 minutes ago</div>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-3">
-                  <div className="p-2 bg-blue-600/20 rounded-lg">
-                    <RefreshCw className="h-4 w-4 text-blue-400" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-sm text-white">Auto-scaling triggered</div>
-                    <div className="text-xs text-gray-400">Added 2 instances to checkout-service</div>
-                    <div className="text-xs text-gray-500 mt-1">1 hour ago</div>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-3">
-                  <div className="p-2 bg-purple-600/20 rounded-lg">
-                    <Brain className="h-4 w-4 text-purple-400" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-sm text-white">AI anomaly detected</div>
-                    <div className="text-xs text-gray-400">Unusual traffic pattern in user-service</div>
-                    <div className="text-xs text-gray-500 mt-1">2 hours ago</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Performance Metrics */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
-            <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold text-white">Performance Metrics</h3>
-                <select className="bg-gray-800 text-white text-sm rounded-lg px-3 py-1 border border-gray-700">
-                  <option>Last 24 hours</option>
-                  <option>Last 7 days</option>
-                  <option>Last 30 days</option>
-                </select>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-400">Response Time</span>
-                  <span className="text-sm text-white font-medium">145ms</span>
-                </div>
-                <div className="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
-                  <div className="h-full w-3/4 bg-green-500 rounded-full" />
-                </div>
-                
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-400">Error Rate</span>
-                  <span className="text-sm text-white font-medium">0.12%</span>
-                </div>
-                <div className="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
-                  <div className="h-full w-1/12 bg-yellow-500 rounded-full" />
-                </div>
-                
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-400">Throughput</span>
-                  <span className="text-sm text-white font-medium">12.5K req/s</span>
-                </div>
-                <div className="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
-                  <div className="h-full w-5/6 bg-blue-500 rounded-full" />
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold text-white">Recent Incidents</h3>
-                <button className="text-sm text-gray-400 hover:text-white">View All →</button>
-              </div>
-              
-              <div className="space-y-3">
-                {mockIncidents.slice(0, 3).map((incident) => (
-                  <div key={incident.id} className="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg">
-                    <div className="flex items-center space-x-3">
-                      <div className={`h-2 w-2 rounded-full ${
-                        incident.severity === 'critical' ? 'bg-red-500' : 
-                        incident.severity === 'high' ? 'bg-orange-500' : 'bg-yellow-500'
-                      }`} />
-                      <div>
-                        <div className="text-sm text-white">{incident.title}</div>
-                        <div className="text-xs text-gray-400">{incident.service}</div>
+                      <div className="flex items-center space-x-2">
+                        <div className="h-2 w-2 rounded-full bg-green-500" />
+                        <span className="text-xs text-green-400">Healthy</span>
                       </div>
                     </div>
-                    <div className="text-right">
-                      <div className="text-xs text-white">{incident.assignee}</div>
-                      <div className="text-xs text-gray-500">
-                        {new Date(incident.createdAt).toLocaleTimeString()}
+
+                    <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
+                      <div className="flex items-center space-x-3">
+                        <div className="p-2 bg-green-500/10 rounded-lg">
+                          <Database className="h-4 w-4 text-green-400" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-medium text-white">Databases</div>
+                          <div className="text-xs text-slate-400">PostgreSQL, Redis</div>
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <div className="h-2 w-2 rounded-full bg-green-500" />
+                        <span className="text-xs text-green-400">Healthy</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
+                      <div className="flex items-center space-x-3">
+                        <div className="p-2 bg-purple-500/10 rounded-lg">
+                          <Network className="h-4 w-4 text-purple-400" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-medium text-white">Network</div>
+                          <div className="text-xs text-slate-400">Global CDN</div>
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <div className="h-2 w-2 rounded-full bg-yellow-500" />
+                        <span className="text-xs text-yellow-400">Warning</span>
                       </div>
                     </div>
                   </div>
-                ))}
+                </div>
+              </div>
+
+              {/* Services and Activity */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+                {/* Service Health */}
+                <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
+                  <div className="flex items-center justify-between mb-6">
+                    <h3 className="text-lg font-semibold text-white">Service Health</h3>
+                    <button className="text-sm text-slate-400 hover:text-white">View All →</button>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    {mockServices.map((service) => (
+                      <div key={service.name} className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
+                        <div className="flex items-center space-x-3">
+                          <div className={`h-2 w-2 rounded-full ${
+                            service.status === 'healthy' ? 'bg-green-500' : 
+                            service.status === 'warning' ? 'bg-yellow-500' : 'bg-red-500'
+                          }`} />
+                          <span className="text-sm font-medium text-white">{service.name}</span>
+                        </div>
+                        <div className="flex items-center space-x-4 text-xs text-slate-400">
+                          <span>CPU: {service.cpu}%</span>
+                          <span>Mem: {service.memory}%</span>
+                          <span>{service.uptime}%</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Recent Activity */}
+                <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-6">
+                  <div className="flex items-center justify-between mb-6">
+                    <h3 className="text-lg font-semibold text-white">Recent Activity</h3>
+                    <button className="text-sm text-slate-400 hover:text-white">View All →</button>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-start space-x-3">
+                      <div className="p-2 bg-green-500/10 rounded-lg">
+                        <CheckCircle className="h-4 w-4 text-green-400" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-sm font-medium text-white">Deployment successful</div>
+                        <div className="text-xs text-slate-400">API Gateway v2.3.1 deployed</div>
+                        <div className="text-xs text-slate-500 mt-1">2 minutes ago</div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start space-x-3">
+                      <div className="p-2 bg-yellow-500/10 rounded-lg">
+                        <AlertTriangle className="h-4 w-4 text-yellow-400" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-sm font-medium text-white">High memory usage</div>
+                        <div className="text-xs text-slate-400">Payment Service using 85% memory</div>
+                        <div className="text-xs text-slate-500 mt-1">15 minutes ago</div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start space-x-3">
+                      <div className="p-2 bg-blue-500/10 rounded-lg">
+                        <RefreshCw className="h-4 w-4 text-blue-400" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-sm font-medium text-white">Auto-scaling triggered</div>
+                        <div className="text-xs text-slate-400">Added 2 instances to checkout service</div>
+                        <div className="text-xs text-slate-500 mt-1">1 hour ago</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </main>
+          </main>
+        </div>
       </div>
     </div>
   )
